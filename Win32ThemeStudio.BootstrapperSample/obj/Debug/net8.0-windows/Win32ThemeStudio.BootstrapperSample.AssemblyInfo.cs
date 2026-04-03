@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Win32ThemeStudio.BootstrapperSample")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+21e21c123be2e9dc5c5da171b0c229014216f8c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+97228e133ddf713de3fefd372ab9cf302b1fde50")]
 [assembly: System.Reflection.AssemblyProductAttribute("Win32ThemeStudio.BootstrapperSample")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Win32ThemeStudio.BootstrapperSample")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

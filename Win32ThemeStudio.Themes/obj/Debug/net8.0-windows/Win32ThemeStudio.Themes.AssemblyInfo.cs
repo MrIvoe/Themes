@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyDescriptionAttribute(("Reusable Win32-style WPF theme library with runtime palette switching, metadata-b" +
     "ased theme discovery, and import-safe bootstrap APIs."))]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.0+21e21c123be2e9dc5c5da171b0c229014216f8c8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.0+97228e133ddf713de3fefd372ab9cf302b1fde50")]
 [assembly: System.Reflection.AssemblyProductAttribute("Win32ThemeStudio.Themes")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Win32ThemeStudio.Themes")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.1.0.0")]

@@ -1,5 +1,5 @@
 ﻿Win32ThemeStudio.Themes
-
+0.1.0.0
 
 library
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR
 
 21-233106516
 
-152095917500
+17-493243000
 198185795992
 Themes\BaseStyles.xaml;Themes\Palettes\AmberTerminal.xaml;Themes\Palettes\ArcticGlass.xaml;Themes\Palettes\AuroraLight.xaml;Themes\Palettes\BrassSteampunk.xaml;Themes\Palettes\CopperFoundry.xaml;Themes\Palettes\EmeraldLedger.xaml;Themes\Palettes\ForestOrganic.xaml;Themes\Palettes\GraphiteOffice.xaml;Themes\Palettes\HarborBlue.xaml;Themes\Palettes\IvoryBureau.xaml;Themes\Palettes\MonoMinimal.xaml;Themes\Palettes\NeonCyberpunk.xaml;Themes\Palettes\NocturneDark.xaml;Themes\Palettes\NovaFuturistic.xaml;Themes\Palettes\OliveTerminal.xaml;Themes\Palettes\PopColorburst.xaml;Themes\Palettes\RosePaper.xaml;Themes\Palettes\StormSteel.xaml;Themes\Palettes\SunsetRetro.xaml;Themes\Palettes\TapeLofi.xaml;
 
