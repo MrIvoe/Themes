@@ -4,6 +4,7 @@
 
 - Added required docs scaffolding for theme-platform roadmap alignment.
 - Established canonical documentation entrypoints for schema, authoring, backgrounds, import, and fallback behavior.
+- Added machine-readable preset schema (`theme-preset.schema.json`) and sample preset artifact for import/export alignment.
 
 ## Notes
 

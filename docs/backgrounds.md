@@ -1,5 +1,11 @@
 # Backgrounds
 
+Current status:
+
+- background configuration is a planned schema layer
+- current shipped preset format does not yet include a dedicated background object
+- next evolution should extend the preset contract without breaking `formatVersion = 1.0` consumers
+
 Background model targets:
 
 - solid color

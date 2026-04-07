@@ -122,6 +122,12 @@ Each preset document contains:
 
 The bootstrapper sample includes a shipped file preset in [Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json](Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json).
 
+Repository-level schema and sample artifacts:
+
+- `theme-preset.schema.json`
+- `docs/examples/signal-night.preset.json`
+- `docs/theme-schema.md`
+
 ## Contrast Validation
 
 You can validate either built-in themes or imported presets before exposing them to users:
