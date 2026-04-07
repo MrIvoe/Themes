@@ -15,6 +15,15 @@
     ],
     "sourceThemeUri": "theme-preset://custom/Signal%20Night"
   },
+  "background": {
+    "mode": "gradient",
+    "primaryColor": "#FF13171C",
+    "secondaryColor": "#FF1D232C",
+    "sizingMode": "fill",
+    "tintColor": "#40171C23",
+    "opacity": 0.92,
+    "blurEnabled": false
+  },
   "paletteValues": {
     "Brush.Background": "#FF13171C",
     "Brush.Surface": "#FF1D232C",

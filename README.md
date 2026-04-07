@@ -118,6 +118,7 @@ Each preset document contains:
 
 - `formatVersion`
 - theme descriptor metadata
+- optional `background` metadata for solid/gradient/image presentation
 - `paletteValues` with hex values for every required brush token
 
 The bootstrapper sample includes a shipped file preset in [Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json](Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json).

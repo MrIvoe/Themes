@@ -9,6 +9,7 @@ Authoring baseline:
 - semantic version
 - token map only (no host internals)
 - optional metadata such as author and website
+- optional `background` block for solid, gradient, or image presentation metadata
 
 Safety:
 

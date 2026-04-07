@@ -8,6 +8,8 @@ public sealed class ThemePreset
 
     public ThemePresetDescriptor Theme { get; init; } = new();
 
+    public ThemeBackgroundPreset? Background { get; init; }
+
     public Dictionary<string, string> PaletteValues { get; init; } = new(StringComparer.OrdinalIgnoreCase);
 
     public ThemeDescriptor ToThemeDescriptor() => Theme.ToThemeDescriptor();

@@ -2,9 +2,9 @@
 
 Current status:
 
-- background configuration is a planned schema layer
-- current shipped preset format does not yet include a dedicated background object
-- next evolution should extend the preset contract without breaking `formatVersion = 1.0` consumers
+- background configuration now has an optional preset-schema layer via the `background` object
+- current implementation preserves background metadata during preset serialize/deserialize round-trips
+- runtime consumption can expand incrementally without breaking `formatVersion = 1.0` consumers
 
 Background model targets:
 

@@ -89,6 +89,7 @@ public static class ThemePresetSerializer
                 ? ThemePreset.CurrentFormatVersion
                 : preset.FormatVersion,
             Theme = ThemePresetDescriptor.FromThemeDescriptor(descriptor),
+            Background = preset.Background?.Normalize(),
             PaletteValues = palette.BrushValues.ToDictionary(static entry => entry.Key, static entry => entry.Value, StringComparer.OrdinalIgnoreCase)
         };
     }

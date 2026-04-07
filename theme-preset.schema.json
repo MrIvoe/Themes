@@ -64,6 +64,44 @@
       },
       "additionalProperties": false
     },
+    "background": {
+      "type": "object",
+      "properties": {
+        "mode": {
+          "type": "string",
+          "enum": ["solid", "gradient", "image"]
+        },
+        "primaryColor": {
+          "type": "string",
+          "pattern": "^#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
+        },
+        "secondaryColor": {
+          "type": "string",
+          "pattern": "^#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
+        },
+        "imageUri": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sizingMode": {
+          "type": "string",
+          "enum": ["fill", "fit", "stretch", "tile", "center"]
+        },
+        "tintColor": {
+          "type": "string",
+          "pattern": "^#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
+        },
+        "opacity": {
+          "type": "number",
+          "minimum": 0.0,
+          "maximum": 1.0
+        },
+        "blurEnabled": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
     "paletteValues": {
       "type": "object",
       "minProperties": 1,

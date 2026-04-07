@@ -15,7 +15,19 @@ Current implemented preset contract:
 - `theme.description`
 - `theme.tags`
 - optional `theme.sourceThemeUri`
+- optional `background` object
 - `paletteValues` map of brush token name to hex color
+
+Current optional background fields:
+
+- `background.mode` = `solid | gradient | image`
+- `background.primaryColor`
+- `background.secondaryColor`
+- `background.imageUri`
+- `background.sizingMode` = `fill | fit | stretch | tile | center`
+- `background.tintColor`
+- `background.opacity` (0.0 - 1.0)
+- `background.blurEnabled`
 
 Example preset:
 
