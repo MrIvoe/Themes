@@ -140,13 +140,11 @@ public partial class MainWindow : Window
     {
         try
         {
-            var preset = ThemePresetSerializer.Deserialize(PresetJsonTextBox.Text);
-            ThemePresetValidator.EnsureValid(preset);
+            var preset = ThemeManager.InitializeApplicationThemeFromPresetJson(Application.Current, PresetJsonTextBox.Text);
             suppressThemeSelectionChanged = true;
             ThemeComboBox.SelectedItem = null;
             suppressThemeSelectionChanged = false;
 
-            ThemeManager.InitializeApplicationTheme(Application.Current, preset);
             UpdateThemeDetails(preset, ThemeComboBox.Items.Count, "Imported JSON preset");
         }
         catch (Exception exception)
@@ -164,14 +162,12 @@ public partial class MainWindow : Window
                 throw new FileNotFoundException("The sample preset file was not found.", samplePresetPath);
             }
 
-            var preset = ThemePresetSerializer.LoadFromFile(samplePresetPath);
-            ThemePresetValidator.EnsureValid(preset);
+            var preset = ThemeManager.InitializeApplicationThemeFromPresetFile(Application.Current, samplePresetPath);
             PresetJsonTextBox.Text = ThemePresetSerializer.Serialize(preset);
             suppressThemeSelectionChanged = true;
             ThemeComboBox.SelectedItem = null;
             suppressThemeSelectionChanged = false;
 
-            ThemeManager.InitializeApplicationTheme(Application.Current, preset);
             UpdateThemeDetails(preset, ThemeComboBox.Items.Count, $"Loaded preset file: {samplePresetPath}");
         }
         catch (Exception exception)

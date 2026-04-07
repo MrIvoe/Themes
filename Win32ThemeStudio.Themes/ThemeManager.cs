@@ -63,6 +63,20 @@ public static class ThemeManager
         return resourceDictionary;
     }
 
+    public static ThemePreset ImportValidatedPresetJson(string json)
+    {
+        var preset = ThemePresetSerializer.Deserialize(json);
+        ThemePresetValidator.EnsureValid(preset);
+        return preset;
+    }
+
+    public static ThemePreset ImportValidatedPresetFile(string filePath)
+    {
+        var preset = ThemePresetSerializer.LoadFromFile(filePath);
+        ThemePresetValidator.EnsureValid(preset);
+        return preset;
+    }
+
     public static void EnsureBaseStyles(Application application)
     {
         ArgumentNullException.ThrowIfNull(application);
@@ -117,6 +131,40 @@ public static class ThemeManager
 
         EnsureBaseStyles(application);
         ApplyTheme(application, preset);
+    }
+
+    public static ThemePreset InitializeApplicationThemeFromPresetJson(Application application, string json)
+    {
+        ArgumentNullException.ThrowIfNull(application);
+
+        var preset = ImportValidatedPresetJson(json);
+        InitializeApplicationTheme(application, preset);
+        return preset;
+    }
+
+    public static ThemePreset InitializeApplicationThemeFromPresetJson(string json)
+    {
+        var application = Application.Current
+            ?? throw new InvalidOperationException("Application.Current is unavailable.");
+
+        return InitializeApplicationThemeFromPresetJson(application, json);
+    }
+
+    public static ThemePreset InitializeApplicationThemeFromPresetFile(Application application, string filePath)
+    {
+        ArgumentNullException.ThrowIfNull(application);
+
+        var preset = ImportValidatedPresetFile(filePath);
+        InitializeApplicationTheme(application, preset);
+        return preset;
+    }
+
+    public static ThemePreset InitializeApplicationThemeFromPresetFile(string filePath)
+    {
+        var application = Application.Current
+            ?? throw new InvalidOperationException("Application.Current is unavailable.");
+
+        return InitializeApplicationThemeFromPresetFile(application, filePath);
     }
 
     public static void ApplyTheme(string themeNameOrId)

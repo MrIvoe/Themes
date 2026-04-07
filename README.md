@@ -102,7 +102,7 @@ The library can export a built-in theme to a JSON preset, or import a custom pre
 ThemePreset preset = ThemePresetSerializer.ExportTheme("graphite-office");
 string json = ThemePresetSerializer.Serialize(preset);
 
-ThemePreset importedPreset = ThemePresetSerializer.Deserialize(json);
+ThemePreset importedPreset = ThemeManager.ImportValidatedPresetJson(json);
 ThemeManager.InitializeApplicationTheme(app, importedPreset);
 ```
 
@@ -110,8 +110,15 @@ File-based shipping is supported directly:
 
 ```csharp
 ThemePresetSerializer.SaveToFile(preset, @"Presets\SignalNight.json");
-ThemePreset filePreset = ThemePresetSerializer.LoadFromFile(@"Presets\SignalNight.json");
+ThemePreset filePreset = ThemeManager.ImportValidatedPresetFile(@"Presets\SignalNight.json");
 ThemeManager.ApplyTheme(app, filePreset);
+```
+
+You can also use one-step initialization from imported presets:
+
+```csharp
+ThemePreset importedFromJson = ThemeManager.InitializeApplicationThemeFromPresetJson(app, json);
+ThemePreset importedFromFile = ThemeManager.InitializeApplicationThemeFromPresetFile(app, @"Presets\SignalNight.json");
 ```
 
 Each preset document contains:
