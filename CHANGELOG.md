@@ -6,6 +6,7 @@
 - Established canonical documentation entrypoints for schema, authoring, backgrounds, import, and fallback behavior.
 - Added machine-readable preset schema (`theme-preset.schema.json`) and sample preset artifact for import/export alignment.
 - Added optional background metadata support to the preset model and schema (`background` block, preserved on round-trip).
+- Added serializer round-trip tests covering optional background metadata and backward-compatible presets without background data.
 
 ## Notes
 
