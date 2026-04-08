@@ -92,7 +92,7 @@
       "xl": 14,
       "pill": 999
     },
-    "border": {
+    "stroke": {
       "thin": 1,
       "medium": 2,
       "thick": 3

@@ -90,7 +90,7 @@
       "focusRing": "state.focus",
       "size": "size.icon.md",
       "radius": "radius.sm",
-      "borderWidth": "border.medium"
+      "borderWidth": "stroke.medium"
     }
   },
   "radio": {
@@ -103,7 +103,7 @@
       "disabledBg": "state.disabled",
       "focusRing": "state.focus",
       "size": "size.icon.md",
-      "borderWidth": "border.medium"
+      "borderWidth": "stroke.medium"
     }
   },
   "toggle": {
@@ -115,7 +115,7 @@
       "thumbDisabled": "text.muted",
       "focusRing": "state.focus",
       "radius": "radius.pill",
-      "borderWidth": "border.thin"
+      "borderWidth": "stroke.thin"
     }
   },
   "select": {
@@ -163,7 +163,7 @@
       "paddingX": "space.md",
       "paddingY": "space.sm",
       "height": "size.control.md",
-      "indicatorHeight": "border.medium"
+      "indicatorHeight": "stroke.medium"
     }
   },
   "menu": {
@@ -208,7 +208,7 @@
       "bodyBg": "surface.card",
       "bodyText": "text.primary",
       "radius": "radius.lg",
-      "borderWidth": "border.thin",
+      "borderWidth": "stroke.thin",
       "padding": "space.lg",
       "headerPadding": "space.md",
       "gap": "space.md"
@@ -225,7 +225,7 @@
       "footerBg": "surface.panel",
       "footerBorder": "border.subtle",
       "radius": "radius.xl",
-      "borderWidth": "border.thin",
+      "borderWidth": "stroke.thin",
       "padding": "space.xl",
       "headerPadding": "space.lg",
       "footerPadding": "space.md",
@@ -240,7 +240,7 @@
       "icon": "accent.info",
       "radius": "radius.md",
       "padding": "space.md",
-      "borderWidth": "border.medium",
+      "borderWidth": "stroke.medium",
       "fontSize": "font.size.md"
     },
     "success": {
@@ -250,7 +250,7 @@
       "icon": "accent.success",
       "radius": "radius.md",
       "padding": "space.md",
-      "borderWidth": "border.medium",
+      "borderWidth": "stroke.medium",
       "fontSize": "font.size.md"
     },
     "warning": {
@@ -260,7 +260,7 @@
       "icon": "accent.warning",
       "radius": "radius.md",
       "padding": "space.md",
-      "borderWidth": "border.medium",
+      "borderWidth": "stroke.medium",
       "fontSize": "font.size.md"
     },
     "danger": {
@@ -270,7 +270,7 @@
       "icon": "accent.danger",
       "radius": "radius.md",
       "padding": "space.md",
-      "borderWidth": "border.medium",
+      "borderWidth": "stroke.medium",
       "fontSize": "font.size.md"
     }
   },
@@ -331,7 +331,7 @@
       "rowBorder": "border.subtle",
       "cellText": "text.primary",
       "radius": "radius.md",
-      "borderWidth": "border.thin",
+      "borderWidth": "stroke.thin",
       "rowHeight": "size.control.md",
       "headerHeight": "size.control.lg",
       "cellPaddingX": "space.md"
@@ -438,7 +438,7 @@
       "itemPaddingX": "space.md",
       "iconSize": "size.icon.md",
       "iconGap": "space.sm",
-      "dividerHeight": "border.thin"
+      "dividerHeight": "stroke.thin"
     }
   },
   "plugin": {

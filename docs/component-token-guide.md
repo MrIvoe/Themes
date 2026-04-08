@@ -30,7 +30,7 @@ Color tokens (in `semantic.json`) answer "what color should this thing be?". Com
         "radius":   "radius.md"
       }
     },
-    "borderWidth": "border.thin",
+    "borderWidth": "stroke.thin",
     "iconGap":     "space.xs"
   }
 }
@@ -78,10 +78,13 @@ All token refs must resolve in `theme.scale`. The midnight theme provides:
 
 | Token | px |
 |---|---|
-| `border.thin` | 1 |
-| `border.medium` | 2 |
-| `border.thick` | 3 |
+### Stroke
 
+| Token | px | Use |
+|---|---|---|
+| `stroke.thin` | 1 | Default border width |
+| `stroke.medium` | 2 | Emphasized border |
+| `stroke.thick` | 3 | Strong border |
 ### Font
 
 | Token | Value |

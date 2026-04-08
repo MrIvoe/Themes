@@ -12,20 +12,6 @@ const REQUIRED_TOKEN_GROUPS = [
   "syntax"
 ];
 
-// Scale groups in theme.json that hold non-color values (numbers/strings).
-// These are validated separately and are not subject to the hex-color check.
-const SCALE_COLOR_EXEMPT_GROUPS = new Set([
-  "size",
-  "space",
-  "radius",
-  "border",
-  "font",
-  "shadow",
-  "motion",
-  "opacity",
-  "layer"
-]);
-
 const HEX_COLOR_PATTERN = /^#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$/;
 const TOKEN_REF_PATTERN = /^[a-z][a-z0-9_]*(\.[a-z][a-z0-9_]*)+$/;
 
@@ -68,6 +54,43 @@ function validateTheme(theme) {
       assert(typeof value === "string", `Token ${tokenPath} must be a string`, errors);
       assert(HEX_COLOR_PATTERN.test(String(value)), `Token ${tokenPath} must be a valid hex color`, errors);
     }
+  }
+
+  errors.push(...validateScale(theme));
+
+  return errors;
+}
+
+function validateScale(theme) {
+  const errors = [];
+
+  if (!theme.scale || typeof theme.scale !== "object") {
+    return errors; // scale block is optional
+  }
+
+  function walkScaleNode(node, nodePath) {
+    if (node === null || node === undefined) {
+      errors.push(`Scale node at '${nodePath}' is null or undefined`);
+      return;
+    }
+    if (typeof node === "object" && !Array.isArray(node)) {
+      for (const [key, value] of Object.entries(node)) {
+        walkScaleNode(value, `${nodePath}.${key}`);
+      }
+      return;
+    }
+    if (typeof node === "number" || typeof node === "string") {
+      return; // valid scale leaf value
+    }
+    errors.push(`Scale node at '${nodePath}' has unexpected type: ${typeof node}`);
+  }
+
+  for (const [group, value] of Object.entries(theme.scale)) {
+    if (typeof value !== "object" || value === null || Array.isArray(value)) {
+      errors.push(`scale.${group} must be an object`);
+      continue;
+    }
+    walkScaleNode(value, `scale.${group}`);
   }
 
   return errors;

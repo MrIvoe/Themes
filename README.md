@@ -107,7 +107,7 @@ Non-color structural values live in `theme.scale.*`:
 - scale.space.md
 - scale.radius.md
 - scale.font.size.md
-- scale.border.thin
+  - scale.stroke.thin
 - scale.motion.duration.normal
 - scale.layer.modal
 
@@ -172,7 +172,7 @@ Example theme file shape:
   "meta": {
     "id": "midnight",
     "name": "Midnight",
-    "version": "0.0.002",
+    "version": "0.0.003",
     "mode": "dark"
   },
   "tokens": {

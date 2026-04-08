@@ -2,6 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/MrIvoe/Themes/schema/theme.schema.json",
   "title": "Universal Theme Tokens",
+  "description": "Schema for a Themes repo theme file. Color tokens live in 'tokens'; structural/scale tokens live in 'scale'.",
   "type": "object",
   "required": ["meta", "tokens"],
   "properties": {
@@ -11,43 +12,65 @@
       "properties": {
         "id": {
           "type": "string",
-          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "description": "Kebab-case unique identifier for the theme."
         },
         "name": {
           "type": "string",
-          "minLength": 1
+          "minLength": 1,
+          "description": "Human-readable display name."
         },
         "version": {
           "type": "string",
-          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+          "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$",
+          "description": "Semantic version x.y.z"
         },
         "mode": {
           "type": "string",
-          "enum": ["light", "dark"]
+          "enum": ["light", "dark"],
+          "description": "Visual mode of the theme."
         }
       },
       "additionalProperties": true
     },
     "tokens": {
       "type": "object",
+      "description": "Color token groups. All leaf values must be valid hex colors (#RRGGBB or #RRGGBBAA).",
       "required": ["background", "surface", "text", "accent", "border", "state", "syntax"],
       "properties": {
-        "background": { "$ref": "#/$defs/tokenGroup" },
-        "surface": { "$ref": "#/$defs/tokenGroup" },
-        "text": { "$ref": "#/$defs/tokenGroup" },
-        "accent": { "$ref": "#/$defs/tokenGroup" },
-        "border": { "$ref": "#/$defs/tokenGroup" },
-        "state": { "$ref": "#/$defs/tokenGroup" },
-        "syntax": { "$ref": "#/$defs/tokenGroup" }
+        "background": { "$ref": "#/$defs/colorTokenGroup" },
+        "surface":    { "$ref": "#/$defs/colorTokenGroup" },
+        "text":       { "$ref": "#/$defs/colorTokenGroup" },
+        "accent":     { "$ref": "#/$defs/colorTokenGroup" },
+        "border":     { "$ref": "#/$defs/colorTokenGroup" },
+        "state":      { "$ref": "#/$defs/colorTokenGroup" },
+        "syntax":     { "$ref": "#/$defs/colorTokenGroup" },
+        "icon":       { "$ref": "#/$defs/colorTokenGroup" }
       },
-      "additionalProperties": {
-        "$ref": "#/$defs/tokenGroup"
-      }
+      "additionalProperties": { "$ref": "#/$defs/colorTokenGroup" }
+    },
+    "scale": {
+      "type": "object",
+      "description": "Structural/non-color tokens — sizes, spacing, typography, motion, z-indices, etc. Leaf values may be numbers or strings.",
+      "properties": {
+        "size":    { "$ref": "#/$defs/scaleGroup", "description": "Icon and control sizes (px numbers)." },
+        "space":   { "$ref": "#/$defs/scaleGroup", "description": "Spacing ramp (px numbers)." },
+        "radius":  { "$ref": "#/$defs/scaleGroup", "description": "Border radius ramp (px numbers)." },
+        "stroke":  { "$ref": "#/$defs/scaleGroup", "description": "Border/outline width ramp (px numbers). Named 'stroke' to avoid collision with tokens.border color group." },
+        "font":    { "$ref": "#/$defs/scaleGroup", "description": "Typography — family strings, size/weight/lineHeight numbers." },
+        "shadow":  { "$ref": "#/$defs/scaleGroup", "description": "Box-shadow CSS value strings." },
+        "motion":  { "$ref": "#/$defs/scaleGroup", "description": "Animation durations (ms numbers) and easing strings." },
+        "opacity": { "$ref": "#/$defs/scaleGroup", "description": "Opacity ramp (0–1 numbers)." },
+        "layer":   { "$ref": "#/$defs/scaleGroup", "description": "Z-index ramp (integer numbers)." }
+      },
+      "additionalProperties": { "$ref": "#/$defs/scaleGroup" }
     }
   },
+  "additionalProperties": false,
   "$defs": {
-    "tokenGroup": {
+    "colorTokenGroup": {
       "type": "object",
+      "description": "A flat group of named hex color values.",
       "minProperties": 1,
       "propertyNames": {
         "type": "string",
@@ -57,7 +80,24 @@
         "type": "string",
         "pattern": "^#(?:[A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$"
       }
+    },
+    "scaleGroup": {
+      "type": "object",
+      "description": "A group of structural scale values. Leaf values may be numbers or strings; groups may be nested.",
+      "minProperties": 1,
+      "propertyNames": {
+        "type": "string",
+        "pattern": "^[a-z][a-z0-9_]*$"
+      },
+      "additionalProperties": { "$ref": "#/$defs/scaleValue" }
+    },
+    "scaleValue": {
+      "description": "A single scale token value — a number, a CSS/font string, or a nested scaleGroup.",
+      "oneOf": [
+        { "type": "number" },
+        { "type": "string", "minLength": 1 },
+        { "$ref": "#/$defs/scaleGroup" }
+      ]
     }
-  },
-  "additionalProperties": false
+  }
 }
