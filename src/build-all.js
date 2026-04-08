@@ -19,6 +19,11 @@ function writeText(filePath, contents) {
   fs.writeFileSync(filePath, contents, "utf8");
 }
 
+function writeJson(filePath, value) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
 function getThemeIds(themesDir, requestedThemeId) {
   if (requestedThemeId) {
     return [requestedThemeId];
@@ -37,8 +42,9 @@ function buildTheme(rootDir, themeId) {
   const semanticPath = path.join(themeDir, "semantic.json");
   const componentsPath = fs.existsSync(path.join(themeDir, "components.json")) ? path.join(themeDir, "components.json") : undefined;
   const iconsPath = fs.existsSync(path.join(themeDir, "icons.json")) ? path.join(themeDir, "icons.json") : undefined;
+  const resourcesPath = fs.existsSync(path.join(themeDir, "resources.json")) ? path.join(themeDir, "resources.json") : undefined;
 
-  const result = validateThemePair(themePath, semanticPath, componentsPath, iconsPath);
+  const result = validateThemePair(themePath, semanticPath, componentsPath, iconsPath, resourcesPath);
   if (!result.valid) {
     throw new Error(`Validation failed for ${themeId}:\n${result.errors.map((e) => `- ${e}`).join("\n")}`);
   }
@@ -56,6 +62,11 @@ function buildTheme(rootDir, themeId) {
   writeText(path.join(rootDir, "dist", "tailwind", `${themeId}.config.js`), exportTailwind(flatTokens));
   writeText(path.join(rootDir, "dist", "qt", `${themeId}.qss`), exportQt(themeId, flatTokens));
   writeText(path.join(rootDir, "dist", "tkinter", `${themeId}.py`), exportTkinter(flatTokens));
+
+  if (resourcesPath) {
+    const resources = JSON.parse(fs.readFileSync(resourcesPath, "utf8"));
+    writeJson(path.join(rootDir, "dist", "json", `${themeId}.resources.json`), resources);
+  }
 
   console.log(`Built theme '${themeId}' into dist outputs`);
 }

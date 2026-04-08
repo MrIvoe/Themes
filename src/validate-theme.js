@@ -230,7 +230,150 @@ function validateIcons(icons, theme) {
   return errors;
 }
 
-function validateThemePair(themePath, semanticPath, componentsPath, iconsPath) {
+function hasPath(target, dotPath) {
+  if (!target || typeof target !== "object" || typeof dotPath !== "string") {
+    return false;
+  }
+  const segments = dotPath.split(".");
+  let cursor = target;
+  for (const segment of segments) {
+    if (!cursor || typeof cursor !== "object" || !(segment in cursor)) {
+      return false;
+    }
+    cursor = cursor[segment];
+  }
+  return true;
+}
+
+function validateResources(resources, components, icons) {
+  const errors = [];
+
+  assert(resources && typeof resources === "object", "Resources file must be an object", errors);
+  if (!resources || typeof resources !== "object") {
+    return errors;
+  }
+
+  assert(resources.meta && typeof resources.meta === "object", "resources.meta required", errors);
+  if (resources.meta) {
+    assert(typeof resources.meta.themeId === "string" && resources.meta.themeId.length > 0,
+      "resources.meta.themeId must be a non-empty string", errors);
+    assert(typeof resources.meta.version === "string" && /^[0-9]+\.[0-9]+\.[0-9]+$/.test(resources.meta.version),
+      "resources.meta.version must match x.y.z", errors);
+  }
+
+  assert(resources.ui && typeof resources.ui === "object", "resources.ui required", errors);
+  if (!resources.ui || typeof resources.ui !== "object") {
+    return errors;
+  }
+
+  const iconPacks = (icons && icons.icon && icons.icon.packs && typeof icons.icon.packs === "object")
+    ? icons.icon.packs
+    : {};
+  const availablePackNames = new Set(Object.keys(iconPacks));
+
+  const uiIcons = resources.ui.icons;
+  assert(uiIcons && typeof uiIcons === "object", "resources.ui.icons required", errors);
+  if (uiIcons && typeof uiIcons === "object") {
+    assert(Array.isArray(uiIcons.availablePacks) && uiIcons.availablePacks.length > 0,
+      "resources.ui.icons.availablePacks must be a non-empty array", errors);
+
+    if (Array.isArray(uiIcons.availablePacks)) {
+      for (const packName of uiIcons.availablePacks) {
+        assert(typeof packName === "string" && packName.length > 0,
+          "resources.ui.icons.availablePacks entries must be non-empty strings", errors);
+        if (typeof packName === "string") {
+          assert(availablePackNames.has(packName),
+            `resources.ui.icons.availablePacks contains unknown pack '${packName}'`, errors);
+        }
+      }
+    }
+
+    assert(typeof uiIcons.defaultPack === "string" && uiIcons.defaultPack.length > 0,
+      "resources.ui.icons.defaultPack must be a non-empty string", errors);
+    if (typeof uiIcons.defaultPack === "string") {
+      assert(availablePackNames.has(uiIcons.defaultPack),
+        `resources.ui.icons.defaultPack references unknown pack '${uiIcons.defaultPack}'`, errors);
+      if (Array.isArray(uiIcons.availablePacks)) {
+        assert(uiIcons.availablePacks.includes(uiIcons.defaultPack),
+          "resources.ui.icons.defaultPack must also exist in resources.ui.icons.availablePacks", errors);
+      }
+    }
+  }
+
+  const uiButtons = resources.ui.buttons;
+  assert(uiButtons && typeof uiButtons === "object", "resources.ui.buttons required", errors);
+  if (uiButtons && typeof uiButtons === "object") {
+    assert(typeof uiButtons.defaultStyle === "string" && uiButtons.defaultStyle.length > 0,
+      "resources.ui.buttons.defaultStyle must be a non-empty string", errors);
+    assert(uiButtons.styles && typeof uiButtons.styles === "object" && !Array.isArray(uiButtons.styles),
+      "resources.ui.buttons.styles must be an object", errors);
+
+    const styleNames = uiButtons.styles && typeof uiButtons.styles === "object" ? Object.keys(uiButtons.styles) : [];
+    if (typeof uiButtons.defaultStyle === "string" && styleNames.length > 0) {
+      assert(styleNames.includes(uiButtons.defaultStyle),
+        "resources.ui.buttons.defaultStyle must exist in resources.ui.buttons.styles", errors);
+    }
+
+    if (uiButtons.styles && typeof uiButtons.styles === "object") {
+      for (const [styleName, styleConfig] of Object.entries(uiButtons.styles)) {
+        assert(styleConfig && typeof styleConfig === "object" && !Array.isArray(styleConfig),
+          `resources.ui.buttons.styles.${styleName} must be an object`, errors);
+        if (!styleConfig || typeof styleConfig !== "object" || Array.isArray(styleConfig)) {
+          continue;
+        }
+
+        assert(typeof styleConfig.componentRef === "string" && styleConfig.componentRef.length > 0,
+          `resources.ui.buttons.styles.${styleName}.componentRef must be a non-empty string`, errors);
+        if (typeof styleConfig.componentRef === "string") {
+          assert(/^button\.[a-z][a-z0-9_]*$/.test(styleConfig.componentRef),
+            `resources.ui.buttons.styles.${styleName}.componentRef must point to button.<variant>`, errors);
+          if (components && typeof components === "object") {
+            assert(hasPath(components, styleConfig.componentRef),
+              `resources.ui.buttons.styles.${styleName}.componentRef references missing component '${styleConfig.componentRef}'`, errors);
+          }
+        }
+
+        if (styleConfig.iconPackOverride !== undefined) {
+          assert(typeof styleConfig.iconPackOverride === "string" && styleConfig.iconPackOverride.length > 0,
+            `resources.ui.buttons.styles.${styleName}.iconPackOverride must be a non-empty string`, errors);
+          if (typeof styleConfig.iconPackOverride === "string") {
+            assert(availablePackNames.has(styleConfig.iconPackOverride),
+              `resources.ui.buttons.styles.${styleName}.iconPackOverride references unknown pack '${styleConfig.iconPackOverride}'`, errors);
+          }
+        }
+      }
+    }
+  }
+
+  const uiControls = resources.ui.controls;
+  if (uiControls !== undefined) {
+    assert(uiControls && typeof uiControls === "object" && !Array.isArray(uiControls),
+      "resources.ui.controls must be an object when provided", errors);
+
+    if (uiControls && typeof uiControls === "object" && !Array.isArray(uiControls)) {
+      for (const [controlName, presets] of Object.entries(uiControls)) {
+        assert(presets && typeof presets === "object" && !Array.isArray(presets),
+          `resources.ui.controls.${controlName} must be an object`, errors);
+        if (!presets || typeof presets !== "object" || Array.isArray(presets)) {
+          continue;
+        }
+
+        for (const [presetName, componentRef] of Object.entries(presets)) {
+          assert(typeof componentRef === "string" && componentRef.length > 0,
+            `resources.ui.controls.${controlName}.${presetName} must be a non-empty string`, errors);
+          if (typeof componentRef === "string" && components && typeof components === "object") {
+            assert(hasPath(components, componentRef),
+              `resources.ui.controls.${controlName}.${presetName} references missing component '${componentRef}'`, errors);
+          }
+        }
+      }
+    }
+  }
+
+  return errors;
+}
+
+function validateThemePair(themePath, semanticPath, componentsPath, iconsPath, resourcesPath) {
   const theme = readJson(themePath);
   const semantic = readJson(semanticPath);
 
@@ -249,6 +392,17 @@ function validateThemePair(themePath, semanticPath, componentsPath, iconsPath) {
     errors.push(...validateIcons(icons, theme));
   }
 
+  if (resourcesPath) {
+    if (!componentsPath || !iconsPath) {
+      errors.push("resources.json validation requires both components.json and icons.json");
+    } else {
+      const resources = readJson(resourcesPath);
+      const components = readJson(componentsPath);
+      const icons = readJson(iconsPath);
+      errors.push(...validateResources(resources, components, icons));
+    }
+  }
+
   return {
     valid: errors.length === 0,
     errors,
@@ -262,7 +416,7 @@ function main() {
   const semanticPath = process.argv[3];
 
   if (!themePath || !semanticPath) {
-    console.error("Usage: node src/validate-theme.js <theme.json> <semantic.json> [components.json] [icons.json]");
+    console.error("Usage: node src/validate-theme.js <theme.json> <semantic.json> [components.json] [icons.json] [resources.json]");
     process.exit(2);
   }
 
@@ -270,8 +424,15 @@ function main() {
   const absoluteSemanticPath = path.resolve(semanticPath);
   const absoluteComponentsPath = process.argv[4] ? path.resolve(process.argv[4]) : undefined;
   const absoluteIconsPath = process.argv[5] ? path.resolve(process.argv[5]) : undefined;
+  const absoluteResourcesPath = process.argv[6] ? path.resolve(process.argv[6]) : undefined;
 
-  const result = validateThemePair(absoluteThemePath, absoluteSemanticPath, absoluteComponentsPath, absoluteIconsPath);
+  const result = validateThemePair(
+    absoluteThemePath,
+    absoluteSemanticPath,
+    absoluteComponentsPath,
+    absoluteIconsPath,
+    absoluteResourcesPath
+  );
   if (!result.valid) {
     for (const error of result.errors) {
       console.error(`- ${error}`);
@@ -291,5 +452,6 @@ module.exports = {
   validateSemantic,
   validateComponents,
   validateIcons,
+  validateResources,
   validateThemePair
 };

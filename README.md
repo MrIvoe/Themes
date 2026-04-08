@@ -27,12 +27,14 @@ Core rule: a theme defines what a color means, not where it is used.
   - semantic.schema.json
   - components.schema.json
   - icons.schema.json
+  - resources.schema.json
   - references.schema.json
 - themes/
   - midnight/theme.json
   - midnight/semantic.json
   - midnight/components.json
   - midnight/icons.json
+  - midnight/resources.json
 - references/
   - icon-packs.json
   - ui-libraries.json
@@ -107,7 +109,7 @@ Non-color structural values live in `theme.scale.*`:
 - scale.space.md
 - scale.radius.md
 - scale.font.size.md
-  - scale.stroke.thin
+- scale.stroke.thin
 - scale.motion.duration.normal
 - scale.layer.modal
 
@@ -120,9 +122,20 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 - Every token color must be a valid hex color (#RRGGBB or #RRGGBBAA).
 - Non-color scale values (size, space, radius, font, motion, …) live in `theme.scale` and are not hex-validated.
 - Semantic references must resolve to an existing token path.
-- Component token refs must resolve to an existing scale path.
-- Icon role semantic refs must resolve to an existing token in `tokens.icon.*`.
-- Icon role size refs must resolve to an existing key in `scale.size.icon.*`.
+- Component token refs must resolve to an existing token in `theme.tokens` or `theme.scale`.
+- Icon role color refs must resolve to an existing color role in `icons.icon.color`.
+- `resources.json` (if present) validates selectable icon packs and button/control style references.
+
+## UI Resource Selection
+
+`themes/<theme-id>/resources.json` is the user-facing selection catalog for runtime UI choices:
+
+- `ui.icons.defaultPack`: default icon pack for the theme
+- `ui.icons.availablePacks`: allowed icon packs users can pick
+- `ui.buttons.styles`: named button style presets mapped to `components.json` variants
+- `ui.controls`: optional named presets for other control groups (input/select/menu/etc)
+
+Build output includes `dist/json/<theme-id>.resources.json` so app/plugin hosts can load the same validated options at runtime.
 
 ## Build And Export
 

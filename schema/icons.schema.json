@@ -39,7 +39,12 @@
             "strokeWidth": { "type": "number", "minimum": 0 },
             "corner": { "type": "string" }
           },
-          "additionalProperties": { "oneOf": [{"type": "number"}, {"type": "string"}] }
+          "additionalProperties": {
+            "oneOf": [
+              { "type": "number" },
+              { "type": "string" }
+            ]
+          }
         },
         "color": {
           "type": "object",
@@ -72,79 +77,13 @@
       "type": "object",
       "required": ["url", "license", "mapping"],
       "properties": {
-        "url":     { "type": "string", "format": "uri" },
+        "url": { "type": "string", "format": "uri" },
         "license": { "type": "string", "minLength": 1 },
-        "status":  { "type": "string" },
+        "status": { "type": "string" },
         "mapping": {
           "type": "object",
           "description": "Maps semantic role paths to pack-specific icon identifiers.",
           "additionalProperties": { "type": "string", "minLength": 1 }
-        }
-      },
-      "additionalProperties": false
-    }
-  }
-}
-
-  "type": "object",
-  "required": ["roles"],
-  "properties": {
-    "roles": {
-      "type": "object",
-      "description": "Semantic icon role groups. Keys are role group names, values map role names to icon token descriptors.",
-      "additionalProperties": {
-        "type": "object",
-        "additionalProperties": {
-          "$ref": "#/$defs/iconRole"
-        }
-      }
-    },
-    "packs": {
-      "type": "object",
-      "description": "Optional icon pack compatibility adapters. Keys are pack identifiers.",
-      "additionalProperties": {
-        "$ref": "#/$defs/iconPack"
-      }
-    }
-  },
-  "additionalProperties": false,
-  "$defs": {
-    "iconRole": {
-      "type": "object",
-      "required": ["semantic", "size"],
-      "properties": {
-        "semantic": {
-          "type": "string",
-          "pattern": "^[a-z][a-z0-9_]*(\\.[a-z][a-z0-9_]*)+$",
-          "description": "Reference to an icon semantic token such as icon.default or icon.status.warning"
-        },
-        "size": {
-          "type": "string",
-          "pattern": "^size\\.icon\\.[a-z][a-z0-9_]*$",
-          "description": "Reference to an icon size scale token such as size.icon.md"
-        }
-      },
-      "additionalProperties": false
-    },
-    "iconPack": {
-      "type": "object",
-      "required": ["url", "license", "mapping"],
-      "properties": {
-        "url": {
-          "type": "string",
-          "format": "uri"
-        },
-        "license": {
-          "type": "string",
-          "minLength": 1
-        },
-        "mapping": {
-          "type": "object",
-          "description": "Maps semantic role paths to pack-specific icon identifiers.",
-          "additionalProperties": {
-            "type": "string",
-            "minLength": 1
-          }
         }
       },
       "additionalProperties": false

@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "themeId": "midnight",
+    "version": "0.0.003"
+  },
+  "ui": {
+    "icons": {
+      "defaultPack": "lucide",
+      "availablePacks": [
+        "lucide",
+        "heroicons",
+        "tabler",
+        "bootstrap-icons"
+      ]
+    },
+    "buttons": {
+      "defaultStyle": "primarySolid",
+      "styles": {
+        "primarySolid": {
+          "label": "Primary Solid",
+          "componentRef": "button.primary"
+        },
+        "secondarySolid": {
+          "label": "Secondary Solid",
+          "componentRef": "button.secondary"
+        },
+        "ghost": {
+          "label": "Ghost",
+          "componentRef": "button.ghost"
+        },
+        "danger": {
+          "label": "Danger",
+          "componentRef": "button.danger"
+        },
+        "heroAction": {
+          "label": "Hero Action",
+          "componentRef": "button.primary",
+          "iconPackOverride": "heroicons"
+        }
+      }
+    },
+    "controls": {
+      "input": {
+        "default": "input.default"
+      },
+      "select": {
+        "default": "select.default"
+      },
+      "menu": {
+        "default": "menu.default"
+      },
+      "tab": {
+        "default": "tab.default"
+      },
+      "card": {
+        "default": "card.default"
+      }
+    }
+  }
+}
