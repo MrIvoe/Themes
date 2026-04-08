@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.0.002
+
+- Reworked Themes into a universal token-first architecture with three layers: raw tokens, semantic mapping, and adapters.
+- Added starter universal theme at themes/midnight (theme.json + semantic.json).
+- Added schema contracts for universal tokens and semantic references.
+- Added token resolver and validation utilities in src/.
+- Added exporters for CSS, JSON, Python, C, and C++ plus build pipeline output into dist/.
+- Updated repository documentation for token naming rules, adapter separation, and single-source export flow.
+
 ## 0.0.001
 
 - Added required docs scaffolding for theme-platform roadmap alignment.

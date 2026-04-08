@@ -29,4 +29,4 @@ Current export behavior:
 
 - exporting a built-in catalog theme now includes a default gradient background block derived from `Brush.Background`, `Brush.Surface`, and `Brush.TransparentLayer`
 
-All background settings should support global defaults and per-fence override compatibility.
+All background settings should support global defaults and per-Space override compatibility.

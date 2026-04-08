@@ -1,0 +1,38 @@
+{
+  "button": {
+    "bg": "accent.primary",
+    "text": "text.inverse",
+    "border": "border.default",
+    "hover": "state.hover"
+  },
+  "input": {
+    "bg": "surface.card",
+    "text": "text.primary",
+    "placeholder": "text.muted",
+    "border": "border.default",
+    "focus": "state.focus"
+  },
+  "editor": {
+    "bg": "background.primary",
+    "fg": "text.primary",
+    "lineNumber": "text.muted",
+    "cursor": "accent.primary",
+    "selection": "state.active"
+  },
+  "plugin": {
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.primary"
+    },
+    "card": {
+      "bg": "surface.card",
+      "border": "border.default"
+    },
+    "status": {
+      "info": "state.focus",
+      "warning": "accent.warning",
+      "error": "accent.danger",
+      "success": "accent.success"
+    }
+  }
+}

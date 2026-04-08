@@ -1,0 +1,33 @@
+/* Qt stylesheet color definitions */
+
+.theme {
+  qproperty-background_primary: #0B0F14;
+  qproperty-background_secondary: #121821;
+  qproperty-background_tertiary: #1A2330;
+  qproperty-surface_panel: #11161F;
+  qproperty-surface_card: #151C27;
+  qproperty-surface_overlay: #1D2633;
+  qproperty-text_primary: #F5F7FA;
+  qproperty-text_secondary: #C7D0D9;
+  qproperty-text_muted: #8A97A6;
+  qproperty-text_inverse: #0B0F14;
+  qproperty-accent_primary: #4DA3FF;
+  qproperty-accent_secondary: #7C5CFF;
+  qproperty-accent_success: #2ECC71;
+  qproperty-accent_warning: #F1C40F;
+  qproperty-accent_danger: #E74C3C;
+  qproperty-accent_info: #00C2FF;
+  qproperty-border_default: #2A3442;
+  qproperty-border_strong: #3A475A;
+  qproperty-border_subtle: #202936;
+  qproperty-state_focus: #4DA3FF;
+  qproperty-state_hover: #1A2330;
+  qproperty-state_active: #243244;
+  qproperty-state_disabled: #5C6673;
+  qproperty-syntax_keyword: #C792EA;
+  qproperty-syntax_string: #C3E88D;
+  qproperty-syntax_function: #82AAFF;
+  qproperty-syntax_variable: #EEFFFF;
+  qproperty-syntax_type: #FFCB6B;
+  qproperty-syntax_comment: #676E95;
+}
