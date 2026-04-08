@@ -16,7 +16,7 @@ public static class ThemePresetBackgroundBrushFactory
         {
             "gradient" => CreateGradientBrush(normalized, fallbackColor),
             "image" => CreateImageBrush(normalized, fallbackColor),
-            _ => CreateSolidBrush(normalized.PrimaryColor, fallbackColor)
+            _ => CreateSolidBrush(normalized.PrimaryColor, normalized.TintColor, fallbackColor)
         };
 
         brush.Opacity = normalized.Opacity;
@@ -32,6 +32,13 @@ public static class ThemePresetBackgroundBrushFactory
     {
         var primary = ParseColorOrFallback(background.PrimaryColor, fallbackColor);
         var secondary = ParseColorOrFallback(background.SecondaryColor, primary);
+        var tint = ParseOptionalColor(background.TintColor);
+
+        if (tint is not null)
+        {
+            primary = BlendColors(primary, tint.Value);
+            secondary = BlendColors(secondary, tint.Value);
+        }
 
         return new LinearGradientBrush(primary, secondary, 135.0);
     }
@@ -40,7 +47,7 @@ public static class ThemePresetBackgroundBrushFactory
     {
         if (string.IsNullOrWhiteSpace(background.ImageUri))
         {
-            return CreateSolidBrush(background.PrimaryColor, fallbackColor);
+            return CreateSolidBrush(background.PrimaryColor, background.TintColor, fallbackColor);
         }
 
         try
@@ -73,13 +80,20 @@ public static class ThemePresetBackgroundBrushFactory
         }
         catch (Exception)
         {
-            return CreateSolidBrush(background.PrimaryColor, fallbackColor);
+            return CreateSolidBrush(background.PrimaryColor, background.TintColor, fallbackColor);
         }
     }
 
-    private static Brush CreateSolidBrush(string? primaryColor, Color fallbackColor)
+    private static Brush CreateSolidBrush(string? primaryColor, string? tintColor, Color fallbackColor)
     {
-        return new SolidColorBrush(ParseColorOrFallback(primaryColor, fallbackColor));
+        var color = ParseColorOrFallback(primaryColor, fallbackColor);
+        var tint = ParseOptionalColor(tintColor);
+        if (tint is not null)
+        {
+            color = BlendColors(color, tint.Value);
+        }
+
+        return new SolidColorBrush(color);
     }
 
     private static Color ParseColorOrFallback(string? candidateColor, Color fallbackColor)
@@ -92,6 +106,33 @@ public static class ThemePresetBackgroundBrushFactory
         return ColorConverter.ConvertFromString(candidateColor) is Color color
             ? color
             : fallbackColor;
+    }
+
+    private static Color? ParseOptionalColor(string? candidateColor)
+    {
+        if (string.IsNullOrWhiteSpace(candidateColor))
+        {
+            return null;
+        }
+
+        return ColorConverter.ConvertFromString(candidateColor) is Color color
+            ? color
+            : null;
+    }
+
+    private static Color BlendColors(Color baseColor, Color tintColor)
+    {
+        var tintAlpha = tintColor.A / 255.0;
+        byte Blend(byte baseChannel, byte tintChannel)
+        {
+            return (byte)Math.Round((baseChannel * (1.0 - tintAlpha)) + (tintChannel * tintAlpha));
+        }
+
+        return Color.FromArgb(
+            0xFF,
+            Blend(baseColor.R, tintColor.R),
+            Blend(baseColor.G, tintColor.G),
+            Blend(baseColor.B, tintColor.B));
     }
 
     private static Stretch ParseStretch(string? sizingMode)

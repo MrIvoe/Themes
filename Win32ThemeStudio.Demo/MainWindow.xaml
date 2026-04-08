@@ -9,7 +9,7 @@
         Width="1180"
         MinHeight="650"
         MinWidth="980">
-    <DockPanel Background="{DynamicResource Brush.Background}">
+    <DockPanel x:Name="RootDockPanel" Background="{DynamicResource Brush.Background}">
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Project">
                 <MenuItem Header="New Theme Variant" />

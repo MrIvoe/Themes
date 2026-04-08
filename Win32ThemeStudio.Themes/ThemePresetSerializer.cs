@@ -27,11 +27,14 @@ public static class ThemePresetSerializer
         ArgumentNullException.ThrowIfNull(descriptor);
         ArgumentNullException.ThrowIfNull(palette);
 
+        var paletteValues = palette.BrushValues.ToDictionary(static entry => entry.Key, static entry => entry.Value, StringComparer.OrdinalIgnoreCase);
+
         return new ThemePreset
         {
             FormatVersion = ThemePreset.CurrentFormatVersion,
             Theme = ThemePresetDescriptor.FromThemeDescriptor(descriptor),
-            PaletteValues = palette.BrushValues.ToDictionary(static entry => entry.Key, static entry => entry.Value, StringComparer.OrdinalIgnoreCase)
+            Background = BuildDefaultBackground(paletteValues),
+            PaletteValues = paletteValues
         };
     }
 
@@ -91,6 +94,29 @@ public static class ThemePresetSerializer
             Theme = ThemePresetDescriptor.FromThemeDescriptor(descriptor),
             Background = preset.Background?.Normalize(),
             PaletteValues = palette.BrushValues.ToDictionary(static entry => entry.Key, static entry => entry.Value, StringComparer.OrdinalIgnoreCase)
+        };
+    }
+
+    private static ThemeBackgroundPreset BuildDefaultBackground(IReadOnlyDictionary<string, string> paletteValues)
+    {
+        var primaryColor = paletteValues.TryGetValue(ThemePaletteKeys.Background, out var backgroundColor)
+            ? backgroundColor
+            : "#FF202124";
+        var secondaryColor = paletteValues.TryGetValue(ThemePaletteKeys.Surface, out var surfaceColor)
+            ? surfaceColor
+            : primaryColor;
+
+        paletteValues.TryGetValue(ThemePaletteKeys.TransparentLayer, out var tintColor);
+
+        return new ThemeBackgroundPreset
+        {
+            Mode = "gradient",
+            PrimaryColor = primaryColor,
+            SecondaryColor = secondaryColor,
+            SizingMode = "fill",
+            TintColor = tintColor,
+            Opacity = 1.0,
+            BlurEnabled = false
         };
     }
 }

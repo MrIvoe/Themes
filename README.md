@@ -133,8 +133,10 @@ Each preset document contains:
 
 - `formatVersion`
 - theme descriptor metadata
-- optional `background` metadata for solid/gradient/image presentation
+- `background` metadata for solid/gradient/image presentation (defaulted for built-in theme exports)
 - `paletteValues` with hex values for every required brush token
+
+Both the bootstrapper sample and demo app use this shared runtime background rendering path.
 
 The bootstrapper sample includes a shipped file preset in [Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json](Win32ThemeStudio.BootstrapperSample/Presets/SignalNight.json).
 

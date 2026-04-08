@@ -35,6 +35,7 @@ public partial class MainWindow : Window
         }
 
         ThemeManager.ApplyTheme(selectedTheme);
+        ApplyPresetBackground(ThemePresetSerializer.ExportTheme(selectedTheme.Id));
         if (TransparentToggle.IsChecked != true)
         {
             Background = (Brush)Application.Current.Resources[ThemePaletteKeys.WindowGlass];
@@ -59,5 +60,20 @@ public partial class MainWindow : Window
         {
             OpacityLabel.Text = $"{(int)(Opacity * 100)}%";
         }
+    }
+
+    private void ApplyPresetBackground(ThemePreset preset)
+    {
+        if (preset.Background is null)
+        {
+            RootDockPanel.SetResourceReference(DockPanel.BackgroundProperty, ThemePaletteKeys.Background);
+            return;
+        }
+
+        var fallbackColor = preset.PaletteValues.TryGetValue(ThemePaletteKeys.Background, out var paletteBackground)
+            ? paletteBackground
+            : "#FF202124";
+
+        RootDockPanel.Background = ThemePresetBackgroundBrushFactory.CreateBrush(preset.Background, fallbackColor);
     }
 }

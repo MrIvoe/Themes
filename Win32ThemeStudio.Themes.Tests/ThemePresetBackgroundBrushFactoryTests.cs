@@ -54,4 +54,24 @@ public class ThemePresetBackgroundBrushFactoryTests
         var solidBrush = (SolidColorBrush)brush;
         Assert.AreEqual((Color)ColorConverter.ConvertFromString("#FF221144"), solidBrush.Color);
     }
+
+    [TestMethod]
+    public void CreateBrush_WithTintColor_AppliesTintedStopsForGradient()
+    {
+        var background = new ThemeBackgroundPreset
+        {
+            Mode = "gradient",
+            PrimaryColor = "#FF000000",
+            SecondaryColor = "#FFFFFFFF",
+            TintColor = "#80FF0000",
+            Opacity = 1.0
+        };
+
+        var brush = ThemePresetBackgroundBrushFactory.CreateBrush(background, "#FF000000");
+
+        Assert.IsInstanceOfType<LinearGradientBrush>(brush);
+        var gradient = (LinearGradientBrush)brush;
+        Assert.AreEqual((Color)ColorConverter.ConvertFromString("#FF800000"), gradient.GradientStops[0].Color);
+        Assert.AreEqual((Color)ColorConverter.ConvertFromString("#FFFF7F7F"), gradient.GradientStops[1].Color);
+    }
 }
