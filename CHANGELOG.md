@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.003
+
+- Published cross-repo theme contract documentation with canonical namespaces, compatibility versioning rules, fallback behavior, and consumer error-handling expectations.
+
 ## 0.0.002
 
 - Reworked Themes into a universal token-first architecture with three layers: raw tokens, semantic mapping, and adapters.

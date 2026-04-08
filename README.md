@@ -115,6 +115,7 @@ Generated files are written to dist/ as:
 - Spaces and Spaces-Plugins consume exported token outputs from Themes.
 - App/plugin repos should not define direct palette values unless app-specific overrides are required.
 - Adapters own framework/language-specific mapping logic.
+- Cross-repo compatibility and fallback policy is documented in `docs/THEME_CONTRACT.md`.
 
 ## Minimal Schema Example
 
