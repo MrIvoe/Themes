@@ -4,7 +4,11 @@ Universal single-source design token system for cross-language theming.
 
 ## Version
 
-Current working baseline: 0.0.001
+Current working baseline: 0.0.002
+
+## Package Visibility
+
+This package is currently internal-only and intentionally marked private.
 
 ## Architecture
 
@@ -95,11 +99,67 @@ Generated files are written to dist/ as:
 - C header defines
 - C++ constexpr header
 
+## Export Compatibility Matrix
+
+- CSS exporter: implemented
+- JSON exporter: implemented
+- Python exporter: implemented
+- C exporter: implemented
+- C++ exporter: implemented
+- Java adapter: planned
+- Qt adapter: planned
+- Tkinter adapter: planned
+
 ## Integration Contract
 
 - Spaces and Spaces-Plugins consume exported token outputs from Themes.
 - App/plugin repos should not define direct palette values unless app-specific overrides are required.
 - Adapters own framework/language-specific mapping logic.
+
+## Minimal Schema Example
+
+Example theme file shape:
+
+```json
+{
+  "meta": {
+    "id": "midnight",
+    "name": "Midnight",
+    "version": "0.0.002",
+    "mode": "dark"
+  },
+  "tokens": {
+    "background": { "primary": "#0F1115" },
+    "text": { "primary": "#E8EDF5" }
+  }
+}
+```
+
+Example semantic mapping shape:
+
+```json
+{
+  "semantic": {
+    "window.background": "background.primary",
+    "window.foreground": "text.primary"
+  }
+}
+```
+
+Example generated output snippet (JSON export):
+
+```json
+{
+  "window.background": "#0F1115",
+  "window.foreground": "#E8EDF5"
+}
+```
+
+## Token Governance
+
+- Reuse existing tokens before adding new ones.
+- Add new tokens only when a semantic need cannot be expressed with existing paths.
+- Never add tokens named after frameworks, languages, or specific controls unless they are semantic aliases.
 
 ## Example Starter Theme
 
