@@ -170,11 +170,38 @@
       "trackOff": "border.default",
       "trackOn": "accent.primary",
       "trackDisabled": "state.disabled",
+      "trackHover": "accent.info",
+      "trackActive": "accent.primary",
       "thumb": "text.inverse",
       "thumbDisabled": "text.muted",
+      "thumbHover": "text.inverse",
       "focusRing": "state.focus",
       "radius": "radius.pill",
-      "borderWidth": "stroke.thin"
+      "borderWidth": "stroke.thin",
+      "trackWidth": 52,
+      "trackHeight": 28,
+      "thumbSize": 22,
+      "labelGap": "space.sm"
+    }
+  },
+  "slider": {
+    "default": {
+      "trackBg": "border.subtle",
+      "trackFill": "accent.primary",
+      "trackDisabled": "state.disabled",
+      "tick": "border.default",
+      "thumbBg": "text.inverse",
+      "thumbBorder": "accent.primary",
+      "thumbHover": "accent.info",
+      "thumbDisabled": "text.muted",
+      "focusRing": "state.focus",
+      "valueText": "text.secondary",
+      "trackHeight": 4,
+      "thumbSize": 16,
+      "tickSize": 4,
+      "valueBubbleMinWidth": 36,
+      "valueBubbleRadius": "radius.pill",
+      "valueBubblePaddingX": "space.xs"
     }
   },
   "select": {
@@ -196,16 +223,22 @@
     "default": {
       "bg": "surface.overlay",
       "border": "border.default",
+      "shadow": "shadow.overlay",
       "itemText": "text.primary",
       "itemHoverBg": "state.hover",
       "itemActiveBg": "state.active",
       "itemSelectedBg": "state.selected",
       "itemSelectedText": "accent.primary",
+      "itemDisabledText": "text.muted",
       "divider": "border.subtle",
       "groupLabel": "text.muted",
+      "focusRing": "state.focus",
       "radius": "radius.md",
       "itemPaddingX": "space.md",
-      "itemHeight": "size.control.md"
+      "itemPaddingY": "space.xs",
+      "itemHeight": "size.control.md",
+      "minWidth": 180,
+      "borderWidth": "stroke.thin"
     }
   },
   "tab": {
@@ -488,16 +521,45 @@
     "default": {
       "bg": "surface.overlay",
       "border": "border.default",
+      "shadow": "shadow.overlay",
       "itemText": "text.primary",
       "itemHoverBg": "state.hover",
+      "itemActiveBg": "state.active",
+      "itemDisabledText": "text.muted",
       "itemIconColor": "text.secondary",
       "divider": "border.subtle",
+      "focusRing": "state.focus",
       "radius": "radius.md",
       "itemHeight": "size.control.md",
       "itemPaddingX": "space.md",
+      "itemPaddingY": "space.xs",
       "iconSize": "size.icon.md",
       "iconGap": "space.sm",
-      "dividerHeight": "stroke.thin"
+      "dividerHeight": "stroke.thin",
+      "borderWidth": "stroke.thin",
+      "minWidth": 220
+    }
+  },
+  "fence": {
+    "default": {
+      "shellBg": "surface.card",
+      "shellBorder": "border.default",
+      "shellShadowRest": "shadow.sm",
+      "shellShadowFocus": "shadow.overlay",
+      "titlebarBg": "background.secondary",
+      "titlebarText": "text.primary",
+      "titlebarBorder": "border.subtle",
+      "itemAreaBg": "surface.panel",
+      "itemAreaText": "text.primary",
+      "itemAreaHoverBg": "state.hover",
+      "itemAreaSelectedBg": "state.selected",
+      "dragPulse": "accent.info",
+      "radius": "radius.lg",
+      "borderWidth": "stroke.thin",
+      "shadowSpread": 16,
+      "titlebarHeight": "size.control.lg",
+      "itemPadding": "space.md",
+      "itemGap": "space.sm"
     }
   },
   "plugin": {

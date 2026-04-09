@@ -408,29 +408,27 @@ function validateResources(resources, components, icons) {
 function validateThemePair(themePath, semanticPath, componentsPath, iconsPath, resourcesPath) {
   const theme = readJson(themePath);
   const semantic = readJson(semanticPath);
+  const components = componentsPath ? readJson(componentsPath) : undefined;
+  const icons = iconsPath ? readJson(iconsPath) : undefined;
+  const resources = resourcesPath ? readJson(resourcesPath) : undefined;
 
   const errors = [
     ...validateTheme(theme),
     ...validateSemantic(semantic, theme)
   ];
 
-  if (componentsPath) {
-    const components = readJson(componentsPath);
+  if (components) {
     errors.push(...validateComponents(components, theme));
   }
 
-  if (iconsPath) {
-    const icons = readJson(iconsPath);
+  if (icons) {
     errors.push(...validateIcons(icons, theme));
   }
 
   if (resourcesPath) {
-    if (!componentsPath || !iconsPath) {
+    if (!components || !icons) {
       errors.push("resources.json validation requires both components.json and icons.json");
     } else {
-      const resources = readJson(resourcesPath);
-      const components = readJson(componentsPath);
-      const icons = readJson(iconsPath);
       errors.push(...validateResources(resources, components, icons));
     }
   }
@@ -439,7 +437,10 @@ function validateThemePair(themePath, semanticPath, componentsPath, iconsPath, r
     valid: errors.length === 0,
     errors,
     theme,
-    semantic
+    semantic,
+    components,
+    icons,
+    resources
   };
 }
 

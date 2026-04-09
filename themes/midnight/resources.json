@@ -85,17 +85,32 @@
       "input": {
         "default": "input.default"
       },
+      "toggle": {
+        "default": "toggle.default"
+      },
+      "slider": {
+        "default": "slider.default"
+      },
       "select": {
         "default": "select.default"
       },
+      "dropdown": {
+        "default": "dropdown.default"
+      },
       "menu": {
         "default": "menu.default"
+      },
+      "tray": {
+        "default": "tray.default"
       },
       "tab": {
         "default": "tab.default"
       },
       "card": {
         "default": "card.default"
+      },
+      "fence": {
+        "default": "fence.default"
       }
     }
   }

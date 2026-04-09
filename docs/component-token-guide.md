@@ -124,6 +124,16 @@ Shared: `borderWidth`.
 Sizes: `sm`, `md`, `lg`. Fields per size: `trackWidth`, `trackHeight`, `thumbSize` (raw px numbers).  
 Shared: `radius` (applies to track), `borderWidth`.
 
+Recommended visual/state fields:
+- `trackOff`, `trackOn`, `trackDisabled`, `trackHover`, `trackActive`
+- `thumb`, `thumbDisabled`, `thumbHover`
+- `focusRing`, `labelGap`
+
+### `slider`
+
+Single size. Fields: `trackHeight`, `thumbSize`, `tickSize`, `valueBubbleMinWidth`, `valueBubbleRadius`, `valueBubblePaddingX`.  
+Visual refs: `trackBg`, `trackFill`, `trackDisabled`, `tick`, `thumbBg`, `thumbBorder`, `thumbHover`, `thumbDisabled`, `focusRing`, `valueText`.
+
 ### `card`
 
 Single size. Fields: `radius`, `borderWidth`, `padding`, `headerPadding`, `gap`.
@@ -162,13 +172,35 @@ Single size. Fields: `sidebarWidth`, `contentPadding`, `rowHeight`, `rowPaddingX
 
 ### `tray`
 
-Single size. Fields: `itemHeight`, `itemPaddingX`, `iconSize`, `iconGap`, `dividerHeight`, `radius`.
+Single size. Fields: `itemHeight`, `itemPaddingX`, `itemPaddingY`, `iconSize`, `iconGap`, `dividerHeight`, `radius`, `borderWidth`, `minWidth`.  
+Visual refs: `bg`, `border`, `shadow`, `itemText`, `itemHoverBg`, `itemActiveBg`, `itemDisabledText`, `itemIconColor`, `divider`, `focusRing`.
+
+### `fence`
+
+Single size. Fields: `radius`, `borderWidth`, `shadowSpread`, `titlebarHeight`, `itemPadding`, `itemGap`.  
+Visual refs: `shellBg`, `shellBorder`, `shellShadowRest`, `shellShadowFocus`, `titlebarBg`, `titlebarText`, `titlebarBorder`, `itemAreaBg`, `itemAreaText`, `itemAreaHoverBg`, `itemAreaSelectedBg`, `dragPulse`.
 
 ### `plugin`
 
 Two sub-components:
 - `card`: `radius`, `padding`, `iconSize`, `gap`
 - `summaryPanel`: `padding`, `sectionRadius`, `iconSize`, `gap`
+
+## Motion Coverage
+
+Themes should also define motion values in `theme.json` for component interactions that do not belong in `components.json` sizing data. Recommended keys:
+
+- `scale.motion.duration.menuOpen`
+- `scale.motion.duration.menuClose`
+- `scale.motion.duration.dropdownOpen`
+- `scale.motion.duration.dropdownClose`
+- `scale.motion.duration.switchToggle`
+- `scale.motion.duration.sliderScrub`
+- `scale.motion.duration.fenceShow`
+- `scale.motion.duration.fenceHide`
+- `scale.motion.duration.fenceFocus`
+- `scale.motion.duration.themeChange`
+- `scale.motion.duration.dragFeedback`
 
 ## Adapter Usage
 

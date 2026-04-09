@@ -24,6 +24,55 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
+function flattenScalars(value, prefix = "", out = {}) {
+  for (const [key, raw] of Object.entries(value || {})) {
+    const nextPath = prefix ? `${prefix}.${key}` : key;
+    if (raw && typeof raw === "object" && !Array.isArray(raw)) {
+      flattenScalars(raw, nextPath, out);
+      continue;
+    }
+    out[nextPath] = raw;
+  }
+  return out;
+}
+
+function resolveReferenceValue(rawValue, flatTokens, flatSemantic, flatScale) {
+  if (typeof rawValue !== "string") {
+    return rawValue;
+  }
+
+  if (rawValue in flatTokens) {
+    return flatTokens[rawValue];
+  }
+
+  if (rawValue in flatScale) {
+    return flatScale[rawValue];
+  }
+
+  if (rawValue in flatSemantic) {
+    const tokenPath = flatSemantic[rawValue];
+    if (typeof tokenPath === "string" && tokenPath in flatTokens) {
+      return flatTokens[tokenPath];
+    }
+  }
+
+  return rawValue;
+}
+
+function resolveObjectRefs(value, flatTokens, flatSemantic, flatScale) {
+  if (Array.isArray(value)) {
+    return value.map((entry) => resolveObjectRefs(entry, flatTokens, flatSemantic, flatScale));
+  }
+
+  if (value && typeof value === "object") {
+    return Object.fromEntries(
+      Object.entries(value).map(([key, child]) => [key, resolveObjectRefs(child, flatTokens, flatSemantic, flatScale)])
+    );
+  }
+
+  return resolveReferenceValue(value, flatTokens, flatSemantic, flatScale);
+}
+
 function getThemeIds(themesDir, requestedThemeId) {
   if (requestedThemeId) {
     return [requestedThemeId];
@@ -51,9 +100,28 @@ function buildTheme(rootDir, themeId) {
 
   const flatTokens = flattenTokens(result.theme.tokens);
   const flatSemantic = flattenSemantic(result.semantic);
+  const flatScale = flattenScalars(result.theme.scale || {});
+  const flatMotion = flattenScalars((result.theme.scale && result.theme.scale.motion) || {});
+  const resolvedComponents = flattenScalars(
+    resolveObjectRefs(result.components || {}, flatTokens, flatSemantic, flatScale)
+  );
+  const flatResources = flattenScalars(result.resources || {});
+
+  const jsonPayload = {
+    meta: {
+      themeId,
+      version: result.theme.meta && result.theme.meta.version ? result.theme.meta.version : undefined
+    },
+    tokens: flatTokens,
+    semantic: flatSemantic,
+    scale: flatScale,
+    motion: flatMotion,
+    components: resolvedComponents,
+    resources: flatResources
+  };
 
   writeText(path.join(rootDir, "dist", "css", `${themeId}.css`), exportCss(flatTokens));
-  writeText(path.join(rootDir, "dist", "json", `${themeId}.json`), exportJson(flatTokens, flatSemantic));
+  writeText(path.join(rootDir, "dist", "json", `${themeId}.json`), exportJson(jsonPayload));
   writeText(path.join(rootDir, "dist", "python", `${themeId}.py`), exportPython(flatTokens));
   writeText(path.join(rootDir, "dist", "c", `${themeId}.h`), exportC(themeId, flatTokens));
   writeText(path.join(rootDir, "dist", "cpp", `${themeId}.hpp`), exportCpp(flatTokens));

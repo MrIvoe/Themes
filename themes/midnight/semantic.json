@@ -72,13 +72,33 @@
     "track": {
       "off": "border.default",
       "on": "accent.primary",
-      "disabled": "state.disabled"
+      "disabled": "state.disabled",
+      "hover": "accent.info",
+      "active": "accent.primary"
     },
     "thumb": {
       "bg": "text.inverse",
+      "disabled": "text.muted",
+      "hover": "text.inverse"
+    },
+    "focusRing": "state.focus",
+    "label": "text.primary"
+  },
+  "slider": {
+    "track": {
+      "bg": "border.subtle",
+      "fill": "accent.primary",
+      "disabled": "state.disabled",
+      "tick": "border.default"
+    },
+    "thumb": {
+      "bg": "text.inverse",
+      "border": "accent.primary",
+      "hover": "accent.info",
       "disabled": "text.muted"
     },
-    "focusRing": "state.focus"
+    "focusRing": "state.focus",
+    "valueText": "text.secondary"
   },
   "select": {
     "bg": "surface.card",
@@ -92,11 +112,14 @@
   "dropdown": {
     "bg": "surface.overlay",
     "border": "border.default",
+    "shadow": "state.active",
     "itemText": "text.primary",
     "itemHoverBg": "state.hover",
     "itemActiveBg": "state.active",
     "itemSelectedBg": "state.selected",
     "itemSelectedText": "accent.primary",
+    "itemDisabledText": "text.muted",
+    "focusRing": "state.focus",
     "divider": "border.subtle",
     "groupLabel": "text.muted"
   },
@@ -295,8 +318,33 @@
     "border": "border.default",
     "itemText": "text.primary",
     "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.active",
+    "itemDisabledText": "text.muted",
     "itemIconColor": "icon.default",
-    "divider": "border.subtle"
+    "divider": "border.subtle",
+    "shadow": "state.active",
+    "focusRing": "state.focus"
+  },
+  "fence": {
+    "shell": {
+      "bg": "surface.card",
+      "border": "border.default",
+      "shadowRest": "border.subtle",
+      "shadowFocus": "state.focus",
+      "collapsedBg": "background.secondary"
+    },
+    "titlebar": {
+      "bg": "background.secondary",
+      "text": "text.primary",
+      "border": "border.subtle"
+    },
+    "itemArea": {
+      "bg": "surface.panel",
+      "text": "text.primary",
+      "hoverBg": "state.hover",
+      "selectedBg": "state.selected",
+      "dragPulse": "accent.info"
+    }
   },
   "icon": {
     "default": {

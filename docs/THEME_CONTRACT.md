@@ -14,6 +14,10 @@ Define the public contract between Themes, Spaces, and Spaces-Plugins for token 
 - Spaces consumes exported semantic outputs and applies platform adapters.
 - Spaces-Plugins consume host-provided semantic tokens and avoid direct palette coupling.
 
+Responsibility split:
+- Themes owns appearance and motion contracts: tokens, semantic roles, component contracts, icon mappings, and style presets.
+- Spaces and Spaces-Plugins own rendering, behavior, input handling, and applying resolved values to platform controls.
+
 ## Canonical Namespaces
 
 - `mrivoe.theme`
@@ -38,6 +42,12 @@ Validation:
 Required:
 - Semantic keys map to existing token paths.
 - Canonical semantic key names remain stable across minor versions.
+
+Priority coverage groups:
+- Core surfaces: window, panel, card, modal, sidebar, settings, tray, fence.
+- Controls: button, input, checkbox, radio, toggle, slider, select, dropdown, tab, menu.
+- Feedback/state: hover, active, focus, selected, disabled, success, warning, error.
+- Motion: menu open/close, dropdown open/close, switch toggle, slider scrub, fence show/hide/focus, theme change.
 
 ## Compatibility Rules
 

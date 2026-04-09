@@ -136,13 +136,27 @@
         "normal": 180,
         "slow": 280,
         "enter": 220,
-        "exit": 150
+        "exit": 150,
+        "menuOpen": 110,
+        "menuClose": 90,
+        "dropdownOpen": 120,
+        "dropdownClose": 90,
+        "switchToggle": 140,
+        "sliderScrub": 70,
+        "fenceShow": 180,
+        "fenceHide": 150,
+        "fenceFocus": 130,
+        "themeChange": 220,
+        "dragFeedback": 100
       },
       "easing": {
         "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
         "enter": "cubic-bezier(0.0, 0.0, 0.2, 1)",
         "exit": "cubic-bezier(0.4, 0.0, 1, 1)",
-        "sharp": "cubic-bezier(0.4, 0.0, 0.6, 1)"
+        "sharp": "cubic-bezier(0.4, 0.0, 0.6, 1)",
+        "emphasized": "cubic-bezier(0.2, 0.0, 0, 1)",
+        "decelerate": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "accelerate": "cubic-bezier(0.4, 0.0, 1, 1)"
       }
     },
     "opacity": {

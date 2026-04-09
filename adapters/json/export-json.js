@@ -1,9 +1,6 @@
-function exportJson(flatTokens, flatSemantic) {
+function exportJson(payload) {
   return JSON.stringify(
-    {
-      tokens: flatTokens,
-      semantic: flatSemantic
-    },
+    payload,
     null,
     2
   ) + "\n";

@@ -1,6 +1,6 @@
 # @mrivoe/themes
 
-`@mrivoe/themes` is a universal design token and UI system for software projects that use a UI or GUI. It supports reusable theme foundations for colors, icons, buttons, controls, layout primitives, and semantic component styling across web, desktop, plugins, and cross-language software projects. The repository also maintains optional compatibility references for free/open icon packs and UI libraries while keeping the core theme source framework-agnostic.
+`@mrivoe/themes` is a universal design token and UI system for software projects that use a UI or GUI. It supports reusable theme foundations for colors, icons, controls, surfaces, layout primitives, semantic component styling, and motion contracts across web, desktop, plugins, and cross-language software projects. The repository is intended to become the full appearance system for Spaces and Spaces-Plugins while keeping rendering and behavior in the consuming apps.
 
 ## Version
 
@@ -19,6 +19,8 @@ The repo is intentionally split into three layers:
 3. Target adapters/exporters
 
 Core rule: a theme defines what a color means, not where it is used.
+
+Extended rule: Themes owns appearance and motion contracts; consuming apps own control behavior and message handling.
 
 ## Repository Layout
 
@@ -126,6 +128,12 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 - Icon role color refs must resolve to an existing color role in `icons.icon.color`.
 - `resources.json` (if present) validates selectable icon packs and button/control style references.
 
+The recommended next contract layers are:
+- foundation tokens: color, size, space, radius, border, font, shadow, motion, opacity, layer
+- semantic roles: `toggle.track.on`, `dropdown.itemHoverBg`, `fence.titlebar.bg`, `tray.itemText`
+- component contracts: `toggle.default`, `slider.default`, `dropdown.default`, `tray.default`, `fence.default`
+- style presets/resources: icon packs, button families, control defaults
+
 ## UI Resource Selection
 
 `themes/<theme-id>/resources.json` is the user-facing selection catalog for runtime UI choices:
@@ -135,6 +143,7 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 - `ui.buttons.families`: style families users can switch between (`compact`, `soft`, `outlined`, `high-contrast`)
 - `ui.buttons.styles`: named button style presets mapped to `components.json` variants
 - `ui.controls`: optional named presets for other control groups (input/select/menu/etc)
+- `ui.controls`: control defaults for toggle, slider, select, dropdown, menu, tray, tab, card, and fence shells
 
 Build output includes `dist/json/<theme-id>.resources.json` so app/plugin hosts can load the same validated options at runtime.
 
