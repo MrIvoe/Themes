@@ -1,0 +1,178 @@
+{
+  "meta": {
+    "id": "fluent-cyberpunk",
+    "name": "Fluent Cyberpunk",
+    "version": "0.1.0",
+    "mode": "dark"
+  },
+  "tokens": {
+    "background": {
+      "primary": "#070A0F",
+      "secondary": "#0C1220",
+      "tertiary": "#111A2D"
+    },
+    "surface": {
+      "panel": "#0E1524",
+      "card": "#131D31",
+      "overlay": "#1A2940"
+    },
+    "text": {
+      "primary": "#EAF7FF",
+      "secondary": "#B4D7EA",
+      "muted": "#7AA0B8",
+      "inverse": "#05070B"
+    },
+    "accent": {
+      "primary": "#00E5FF",
+      "secondary": "#FCEE09",
+      "success": "#59F79C",
+      "warning": "#FFD60A",
+      "danger": "#FF2A6D",
+      "info": "#2BF0FF"
+    },
+    "border": {
+      "default": "#1F3752",
+      "strong": "#2D5278",
+      "subtle": "#17273A"
+    },
+    "state": {
+      "focus": "#00E5FF",
+      "hover": "#112845",
+      "active": "#173153",
+      "disabled": "#4A6076",
+      "selected": "#123A62",
+      "error": "#FF2A6D"
+    },
+    "syntax": {
+      "keyword": "#F95CFF",
+      "string": "#9BFF58",
+      "function": "#2BF0FF",
+      "variable": "#F2FCFF",
+      "type": "#FFD84D",
+      "comment": "#6787A8"
+    },
+    "icon": {
+      "default": "#C7D0D9",
+      "interactive": "#00E5FF",
+      "muted": "#8A97A6",
+      "inverse": "#F5F7FA",
+      "success": "#2ECC71",
+      "warning": "#FFD60A",
+      "danger": "#FF2A6D",
+      "info": "#00C2FF"
+    }
+  },
+  "scale": {
+    "size": {
+      "icon": {
+        "xs": 12,
+        "sm": 14,
+        "md": 16,
+        "lg": 20,
+        "xl": 24
+      },
+      "control": {
+        "sm": 28,
+        "md": 36,
+        "lg": 44
+      }
+    },
+    "space": {
+      "xs": 4,
+      "sm": 8,
+      "md": 12,
+      "lg": 16,
+      "xl": 24,
+      "xxl": 40
+    },
+    "radius": {
+      "sm": 2,
+      "md": 4,
+      "lg": 8,
+      "xl": 12,
+      "pill": 999
+    },
+    "stroke": {
+      "thin": 1,
+      "medium": 2,
+      "thick": 3
+    },
+    "font": {
+      "family": {
+        "base": "Segoe UI Variable, Bahnschrift, Inter, system-ui, sans-serif",
+        "mono": "Cascadia Code, JetBrains Mono, Consolas, monospace"
+      },
+      "size": {
+        "xs": 11,
+        "sm": 12,
+        "md": 13,
+        "lg": 14,
+        "xl": 16,
+        "xxl": 18,
+        "heading": 20
+      },
+      "weight": {
+        "regular": 400,
+        "medium": 500,
+        "semibold": 600,
+        "bold": 700
+      },
+      "lineHeight": {
+        "tight": 1.2,
+        "normal": 1.45,
+        "relaxed": 1.65
+      }
+    },
+    "shadow": {
+      "sm": "0 1px 2px rgba(0,0,0,0.45)",
+      "md": "0 6px 16px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,229,255,0.12)",
+      "lg": "0 12px 32px rgba(0,0,0,0.55), 0 0 0 1px rgba(0,229,255,0.18)",
+      "overlay": "0 18px 52px rgba(0,0,0,0.65), 0 0 24px rgba(0,229,255,0.22)"
+    },
+    "motion": {
+      "duration": {
+        "instant": 50,
+        "fast": 100,
+        "normal": 180,
+        "slow": 280,
+        "enter": 220,
+        "exit": 150,
+        "menuOpen": 110,
+        "menuClose": 90,
+        "dropdownOpen": 120,
+        "dropdownClose": 90,
+        "switchToggle": 140,
+        "sliderScrub": 70,
+        "fenceShow": 180,
+        "fenceHide": 150,
+        "fenceFocus": 130,
+        "themeChange": 220,
+        "dragFeedback": 100
+      },
+      "easing": {
+        "standard": "cubic-bezier(0.4, 0, 0.2, 1)",
+        "enter": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "exit": "cubic-bezier(0.4, 0.0, 1, 1)",
+        "sharp": "cubic-bezier(0.4, 0.0, 0.6, 1)",
+        "emphasized": "cubic-bezier(0.2, 0.0, 0, 1)",
+        "decelerate": "cubic-bezier(0.0, 0.0, 0.2, 1)",
+        "accelerate": "cubic-bezier(0.4, 0.0, 1, 1)"
+      }
+    },
+    "opacity": {
+      "disabled": 0.4,
+      "muted": 0.6,
+      "overlay": 0.72,
+      "full": 1.0
+    },
+    "layer": {
+      "base": 0,
+      "raised": 10,
+      "dropdown": 100,
+      "overlay": 200,
+      "modal": 300,
+      "toast": 400,
+      "tooltip": 500
+    }
+  }
+}

@@ -3,12 +3,12 @@
     "primary": {
       "bg": "accent.primary",
       "text": "text.inverse",
-      "border": "border.default",
-      "hoverBg": "state.hover",
+      "border": "accent.primary",
+      "hoverBg": "accent.info",
       "activeBg": "state.active",
       "disabledBg": "state.disabled",
       "disabledText": "text.muted",
-      "focusRing": "state.focus",
+      "focusRing": "accent.primary",
       "radius": "radius.md",
       "paddingX": "space.md",
       "paddingY": "space.sm",
@@ -90,8 +90,8 @@
     },
     "outlinedPrimary": {
       "bg": "background.primary",
-      "text": "accent.primary",
-      "border": "accent.primary",
+      "text": "accent.secondary",
+      "border": "accent.secondary",
       "hoverBg": "surface.card",
       "activeBg": "state.active",
       "focusRing": "state.focus",
@@ -104,9 +104,9 @@
       "iconGap": "space.xs"
     },
     "highContrastPrimary": {
-      "bg": "text.primary",
+      "bg": "accent.secondary",
       "text": "text.inverse",
-      "border": "text.primary",
+      "border": "accent.secondary",
       "hoverBg": "text.secondary",
       "activeBg": "text.muted",
       "focusRing": "accent.warning",
@@ -176,7 +176,7 @@
       "placeholder": "text.muted",
       "border": "transparent",
       "borderBottom": "border.subtle",
-      "borderFocus": "accent.primary",
+      "borderFocus": "accent.secondary",
       "disabledBg": "transparent",
       "disabledText": "text.muted",
       "focusRing": "transparent",
@@ -460,14 +460,15 @@
     },
     "elevated": {
       "bg": "surface.card",
-      "shadow": "shadow.md",
+      "shadow": "shadow.lg",
       "headerBg": "surface.card",
       "headerText": "text.primary",
       "bodyBg": "surface.card",
       "bodyText": "text.primary",
       "radius": "radius.lg",
       "padding": "space.lg",
-      "gap": "space.md"
+      "gap": "space.md",
+      "border": "border.strong"
     },
     "outlined": {
       "bg": "background.primary",
@@ -492,7 +493,7 @@
   "modal": {
     "default": {
       "bg": "surface.card",
-      "border": "border.default",
+      "border": "accent.primary",
       "backdrop": "background.primary",
       "headerBg": "surface.panel",
       "headerText": "text.primary",
@@ -740,7 +741,7 @@
     "info": {
       "bg": "accent.info",
       "text": "text.inverse",
-      "border": "accent.info",
+      "border": "accent.primary",
       "icon": "text.inverse",
       "closeButton": "text.inverse",
       "radius": "radius.md",
@@ -782,7 +783,7 @@
       "auto_dismiss": 0
     },
     "toast": {
-      "position": "bottom-right",
+      "position": "top-right",
       "auto_dismiss": 1,
       "maxWidth": 400,
       "gap": "space.md"
@@ -805,7 +806,7 @@
       "trackOn": "accent.primary",
       "trackDisabled": "state.disabled",
       "thumb": "text.inverse",
-      "focusRing": "state.focus",
+      "focusRing": "accent.primary",
       "radius": "radius.pill",
       "trackWidth": 52,
       "trackHeight": 28,
@@ -846,10 +847,10 @@
   "fence": {
     "default": {
       "shellBg": "surface.card",
-      "shellBorder": "border.default",
+      "shellBorder": "border.strong",
       "shellShadowRest": "shadow.sm",
       "shellShadowFocus": "shadow.overlay",
-      "titlebarBg": "background.secondary",
+      "titlebarBg": "background.tertiary",
       "titlebarText": "text.primary",
       "titlebarBorder": "border.subtle",
       "itemAreaBg": "surface.panel",

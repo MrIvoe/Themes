@@ -30,6 +30,8 @@ Extended rule: Themes owns appearance and motion contracts; consuming apps own c
   - components.schema.json
   - icons.schema.json
   - resources.schema.json
+  - style-family.schema.json
+  - reference-catalog.schema.json
   - references.schema.json
 - themes/
   - midnight/theme.json
@@ -37,7 +39,14 @@ Extended rule: Themes owns appearance and motion contracts; consuming apps own c
   - midnight/components.json
   - midnight/icons.json
   - midnight/resources.json
+  - fluent-cyberpunk/theme.json
+  - fluent-cyberpunk/semantic.json
+  - fluent-cyberpunk/components.json
+  - fluent-cyberpunk/icons.json
+  - fluent-cyberpunk/resources.json
+  - fluent-cyberpunk/preview-manifest.json
 - references/
+  - preview-fixtures.json
   - icon-packs.json
   - ui-libraries.json
   - licenses-to-verify.md
@@ -127,6 +136,31 @@ Avoid implementation-specific names such as htmlBlue, cppErrorRed, pythonWindowB
 - Component token refs must resolve to an existing token in `theme.tokens` or `theme.scale`.
 - Icon role color refs must resolve to an existing color role in `icons.icon.color`.
 - `resources.json` (if present) validates selectable icon packs and button/control style references.
+- Naming law is enforced:
+  - singular component namespaces in `components.json` (`button`, `input`, `switch`, `tab`, ...)
+  - plural resource buckets in `resources.json` (`ui.buttons`, `ui.inputs`, `ui.tabs`, ...)
+  - all `componentRef` entries must point to singular namespaces
+- Family metadata is required in `resources.json`:
+  - `ui.familySupport.<family>.status`
+  - `ui.familySupport.<family>.supportedComponents`
+  - `ui.familySupport.<family>.fallbackFamily`
+  - `ui.familyDna.<family>.*`
+- Accessibility metadata is required in `resources.ui.accessibility` for interactive control focus behavior.
+- Validator checks text/background contrast for component variants where both colors resolve to concrete token values.
+
+## Naming Law
+
+- Component contract paths are singular:
+  - `button.primary`
+  - `input.outlined`
+  - `switch.default`
+  - `tab.standard`
+- Resource categories are plural:
+  - `ui.buttons`
+  - `ui.inputs`
+  - `ui.tabs`
+  - `ui.notifications`
+- `componentRef` must always point to a singular component contract path.
 
 The recommended next contract layers are:
 - foundation tokens: color, size, space, radius, border, font, shadow, motion, opacity, layer
@@ -159,6 +193,15 @@ Run from the Themes repo root:
 ```bash
 npm run validate
 npm run build
+```
+
+Useful targeted commands:
+
+```bash
+npm run validate:midnight
+npm run validate:fluent-cyberpunk
+npm run build:midnight
+npm run build:fluent-cyberpunk
 ```
 
 Generated files are written to dist/ as:
@@ -233,6 +276,13 @@ Example generated output snippet (JSON export):
 ## Inspiration and Reference Sources
 
 `@mrivoe/themes` is inspired by and references external UI kits and design systems to inform component patterns, naming conventions, and interaction design. **No code from external sources is embedded in our core theme files.** All inspiration is transformed into our own semantic contracts and token system.
+
+Game-inspired themes in this repository must remain original and semantic:
+
+- no copied franchise assets
+- no imported trademarked logos
+- no copied source UI markup/layouts
+- only high-level mood, palette strategy, and interaction principles
 
 ### External Design Systems and UI Kits
 

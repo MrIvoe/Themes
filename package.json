@@ -5,9 +5,12 @@
   "description": "Universal single-source theme token system with multi-target exporters",
   "type": "commonjs",
   "scripts": {
-    "validate": "node src/validate-theme.js themes/midnight/theme.json themes/midnight/semantic.json themes/midnight/components.json themes/midnight/icons.json themes/midnight/resources.json",
+    "validate": "node src/validate-theme.js --all",
+    "validate:midnight": "node src/validate-theme.js themes/midnight/theme.json themes/midnight/semantic.json themes/midnight/components.json themes/midnight/icons.json themes/midnight/resources.json",
+    "validate:fluent-cyberpunk": "node src/validate-theme.js themes/fluent-cyberpunk/theme.json themes/fluent-cyberpunk/semantic.json themes/fluent-cyberpunk/components.json themes/fluent-cyberpunk/icons.json themes/fluent-cyberpunk/resources.json",
     "build": "node src/build-all.js",
     "build:midnight": "node src/build-all.js midnight",
+    "build:fluent-cyberpunk": "node src/build-all.js fluent-cyberpunk",
     "resolve:ui": "node src/resolve-ui-resources.js themes/midnight",
     "resolve:ui:sample": "node src/resolve-ui-resources.js themes/midnight --icon-pack tabler --button-style softPrimary"
   }

@@ -28,7 +28,9 @@
           "description": "Consistent stroke-based iconography",
           "license": "ISC",
           "count": 450,
-          "variants": ["default"],
+          "variants": [
+            "default"
+          ],
           "url": "https://lucide.dev"
         },
         "heroicons": {
@@ -36,7 +38,10 @@
           "description": "Outline and solid stroke variations",
           "license": "MIT",
           "count": 290,
-          "variants": ["outline", "solid"],
+          "variants": [
+            "outline",
+            "solid"
+          ],
           "url": "https://heroicons.com"
         },
         "tabler": {
@@ -44,7 +49,9 @@
           "description": "Monospace-inspired stroke icons for dashboards",
           "license": "MIT",
           "count": 4800,
-          "variants": ["default"],
+          "variants": [
+            "default"
+          ],
           "url": "https://tabler-icons.io"
         },
         "bootstrap-icons": {
@@ -52,7 +59,9 @@
           "description": "Bootstrap ecosystem compatible icons",
           "license": "MIT",
           "count": 2300,
-          "variants": ["default"],
+          "variants": [
+            "default"
+          ],
           "url": "https://icons.getbootstrap.com"
         }
       }
@@ -60,31 +69,48 @@
     "buttons": {
       "defaultStyle": "compactPrimary",
       "defaultFamily": "compact",
-      "availableFamilies": ["compact", "soft", "outlined", "high-contrast"],
+      "availableFamilies": [
+        "compact",
+        "soft",
+        "outlined",
+        "high-contrast"
+      ],
       "families": {
         "compact": {
           "label": "Compact",
           "description": "Dense button with minimal padding",
           "defaultStyle": "compactPrimary",
-          "styles": ["compactPrimary", "compactSecondary"]
+          "styles": [
+            "compactPrimary",
+            "compactSecondary"
+          ]
         },
         "soft": {
           "label": "Soft",
           "description": "Soft button with elevated background",
           "defaultStyle": "softPrimary",
-          "styles": ["softPrimary", "softSecondary"]
+          "styles": [
+            "softPrimary",
+            "softSecondary"
+          ]
         },
         "outlined": {
           "label": "Outlined",
           "description": "Border-only button",
           "defaultStyle": "outlinedPrimary",
-          "styles": ["outlinedPrimary", "outlinedDanger"]
+          "styles": [
+            "outlinedPrimary",
+            "outlinedDanger"
+          ]
         },
         "high-contrast": {
           "label": "High Contrast",
           "description": "Accessible high-contrast button",
           "defaultStyle": "highContrastPrimary",
-          "styles": ["highContrastPrimary", "highContrastDanger"]
+          "styles": [
+            "highContrastPrimary",
+            "highContrastDanger"
+          ]
         }
       },
       "styles": {
@@ -121,41 +147,108 @@
           "componentRef": "button.danger",
           "iconPackOverride": "bootstrap-icons"
         }
-      }
+      },
+      "availableStyles": [
+        "compactPrimary",
+        "compactSecondary",
+        "softPrimary",
+        "softSecondary",
+        "outlinedPrimary",
+        "outlinedDanger",
+        "highContrastPrimary",
+        "highContrastDanger"
+      ]
     },
     "controlFamilies": {
       "defaultFamily": "desktop-fluent",
-      "availableFamilies": ["desktop-fluent", "dashboard-modern", "flat-minimal"],
+      "availableFamilies": [
+        "desktop-fluent",
+        "dashboard-modern",
+        "flat-minimal",
+        "soft-mobile",
+        "cyber-futuristic"
+      ],
       "families": {
         "desktop-fluent": {
           "label": "Desktop Fluent",
-          "switch": { "componentRef": "switch.desktop-fluent" },
-          "slider": { "componentRef": "slider.desktop-fluent" },
-          "dropdown": { "componentRef": "dropdown.desktop-fluent" },
-          "input": { "componentRef": "input.outlined" }
+          "switch": {
+            "componentRef": "switch.desktop-fluent"
+          },
+          "slider": {
+            "componentRef": "slider.default"
+          },
+          "dropdown": {
+            "componentRef": "dropdown.default"
+          },
+          "input": {
+            "componentRef": "input.outlined"
+          }
         },
         "dashboard-modern": {
           "label": "Dashboard Modern",
-          "switch": { "componentRef": "switch.minimal" },
-          "slider": { "componentRef": "slider.compact" },
-          "dropdown": { "componentRef": "dropdown.compact" },
-          "input": { "componentRef": "input.filled" }
+          "switch": {
+            "componentRef": "switch.minimal"
+          },
+          "slider": {
+            "componentRef": "slider.compact"
+          },
+          "dropdown": {
+            "componentRef": "dropdown.compact"
+          },
+          "input": {
+            "componentRef": "input.filled"
+          }
         },
         "flat-minimal": {
           "label": "Flat Minimal",
-          "switch": { "componentRef": "switch.minimal" },
-          "slider": { "componentRef": "slider.minimal" },
-          "dropdown": { "componentRef": "dropdown.minimal" },
-          "input": { "componentRef": "input.ghost" }
+          "switch": {
+            "componentRef": "switch.minimal"
+          },
+          "slider": {
+            "componentRef": "slider.minimal"
+          },
+          "dropdown": {
+            "componentRef": "dropdown.minimal"
+          },
+          "input": {
+            "componentRef": "input.ghost"
+          }
+        },
+        "soft-mobile": {
+          "dropdown": {
+            "componentRef": "dropdown.default"
+          },
+          "switch": {
+            "componentRef": "switch.default"
+          },
+          "input": {
+            "componentRef": "input.filled"
+          },
+          "label": "Soft Mobile",
+          "slider": {
+            "componentRef": "slider.default"
+          }
+        },
+        "cyber-futuristic": {
+          "dropdown": {
+            "componentRef": "dropdown.minimal"
+          },
+          "switch": {
+            "componentRef": "switch.desktop-fluent"
+          },
+          "input": {
+            "componentRef": "input.ghost"
+          },
+          "label": "Cyber Futuristic",
+          "slider": {
+            "componentRef": "slider.minimal"
+          }
         }
       }
     },
     "controls": {
       "input": {
         "default": "input.default"
-      },
-      "toggle": {
-        "default": "toggle.default"
       },
       "slider": {
         "default": "slider.default"
@@ -165,11 +258,18 @@
       },
       "dropdown": {
         "default": "dropdown.default"
+      },
+      "switch": {
+        "default": "switch.default"
       }
     },
     "menus": {
       "defaultStyle": "standard",
-      "availableStyles": ["standard", "compact", "hierarchical"],
+      "availableStyles": [
+        "standard",
+        "compact",
+        "hierarchical"
+      ],
       "styles": {
         "standard": {
           "label": "Standard Menu",
@@ -200,7 +300,11 @@
     },
     "fences": {
       "defaultStyle": "window-frame",
-      "availableStyles": ["window-frame", "card-container", "embedded"],
+      "availableStyles": [
+        "window-frame",
+        "card-container",
+        "embedded"
+      ],
       "styles": {
         "window-frame": {
           "label": "Window Frame",
@@ -232,28 +336,45 @@
     },
     "motion": {
       "defaultPreset": "standard",
-      "availablePresets": ["standard", "quick", "deliberate", "minimal"],
+      "availablePresets": [
+        "standard",
+        "quick",
+        "deliberate",
+        "minimal"
+      ],
       "presets": {
         "standard": {
           "label": "Standard",
           "description": "Material-inspired transitions (400ms)",
           "duration": "400ms",
           "easing": "cubic-bezier(0.25, 0.46, 0.45, 0.94)",
-          "examples": ["modal enter", "dialog fade", "page transitions"]
+          "examples": [
+            "modal enter",
+            "dialog fade",
+            "page transitions"
+          ]
         },
         "quick": {
           "label": "Quick",
           "description": "Fast micro-interactions (200ms)",
           "duration": "200ms",
           "easing": "cubic-bezier(0.4, 0.0, 0.2, 1.0)",
-          "examples": ["hover effects", "button click", "checkbox toggle"]
+          "examples": [
+            "hover effects",
+            "button click",
+            "checkbox toggle"
+          ]
         },
         "deliberate": {
           "label": "Deliberate",
           "description": "Slower, natural transitions (600ms)",
           "duration": "600ms",
           "easing": "cubic-bezier(0.34, 1.56, 0.64, 1.0)",
-          "examples": ["menu open", "slide-in panels", "accordions"]
+          "examples": [
+            "menu open",
+            "slide-in panels",
+            "accordions"
+          ]
         },
         "minimal": {
           "label": "Minimal Motion",
@@ -265,7 +386,11 @@
     },
     "cards": {
       "defaultFamily": "elevated",
-      "availableFamilies": ["elevated", "outlined", "filled"],
+      "availableFamilies": [
+        "elevated",
+        "outlined",
+        "filled"
+      ],
       "families": {
         "elevated": {
           "label": "Elevated",
@@ -286,28 +411,36 @@
     },
     "tabs": {
       "defaultStyle": "standard",
-      "availableStyles": ["standard", "minimal", "pill"],
+      "availableStyles": [
+        "standard",
+        "minimal",
+        "pill"
+      ],
       "styles": {
         "standard": {
           "label": "Standard Tabs",
           "description": "Classic bottom-underline tabs",
-          "componentRef": "tabs.standard"
+          "componentRef": "tab.standard"
         },
         "minimal": {
           "label": "Minimal Tabs",
           "description": "Minimal tab indicator",
-          "componentRef": "tabs.minimal"
+          "componentRef": "tab.minimal"
         },
         "pill": {
           "label": "Pill Tabs",
           "description": "Rounded pill-style tabs",
-          "componentRef": "tabs.pill"
+          "componentRef": "tab.pill"
         }
       }
     },
     "inputs": {
       "defaultStyle": "outlined",
-      "availableStyles": ["outlined", "filled", "ghost"],
+      "availableStyles": [
+        "outlined",
+        "filled",
+        "ghost"
+      ],
       "styles": {
         "outlined": {
           "label": "Outlined Input",
@@ -328,7 +461,11 @@
     },
     "notifications": {
       "defaultStyle": "toast",
-      "availableStyles": ["toast", "banner", "inline"],
+      "availableStyles": [
+        "toast",
+        "banner",
+        "inline"
+      ],
       "styles": {
         "toast": {
           "label": "Toast",
@@ -352,6 +489,165 @@
           "componentRef": "notification.inline"
         }
       }
+    },
+    "familySupport": {
+      "dashboard-modern": {
+        "fallbackFamily": "desktop-fluent",
+        "status": "stable",
+        "supportedComponents": [
+          "button",
+          "input",
+          "switch",
+          "slider",
+          "dropdown",
+          "menu",
+          "tab",
+          "card",
+          "modal",
+          "notification"
+        ]
+      },
+      "soft-mobile": {
+        "fallbackFamily": "desktop-fluent",
+        "status": "partial",
+        "supportedComponents": [
+          "button",
+          "input",
+          "switch",
+          "slider",
+          "dropdown",
+          "menu",
+          "tab",
+          "card",
+          "notification"
+        ]
+      },
+      "flat-minimal": {
+        "fallbackFamily": "desktop-fluent",
+        "status": "stable",
+        "supportedComponents": [
+          "button",
+          "input",
+          "switch",
+          "slider",
+          "dropdown",
+          "menu",
+          "tab",
+          "card",
+          "modal",
+          "notification",
+          "fence"
+        ]
+      },
+      "desktop-fluent": {
+        "fallbackFamily": "desktop-fluent",
+        "status": "stable",
+        "supportedComponents": [
+          "button",
+          "input",
+          "switch",
+          "slider",
+          "dropdown",
+          "menu",
+          "tab",
+          "card",
+          "modal",
+          "notification",
+          "fence"
+        ]
+      },
+      "cyber-futuristic": {
+        "fallbackFamily": "desktop-fluent",
+        "status": "experimental",
+        "supportedComponents": [
+          "button",
+          "input",
+          "switch",
+          "slider",
+          "dropdown",
+          "menu",
+          "tab",
+          "card",
+          "modal",
+          "notification",
+          "fence"
+        ]
+      }
+    },
+    "familyDna": {
+      "dashboard-modern": {
+        "surfaceStyle": "card-grid",
+        "accentStrategy": "data-first-primary",
+        "density": "compact",
+        "shapeLanguage": "tight-grid",
+        "motionCharacter": "quick",
+        "glowUsage": "none",
+        "mood": [
+          "analytical",
+          "efficient",
+          "focused"
+        ]
+      },
+      "soft-mobile": {
+        "surfaceStyle": "soft-layers",
+        "accentStrategy": "warm-primary",
+        "density": "touch",
+        "shapeLanguage": "rounded-soft",
+        "motionCharacter": "spring",
+        "glowUsage": "minimal",
+        "mood": [
+          "friendly",
+          "touch-first",
+          "approachable"
+        ]
+      },
+      "flat-minimal": {
+        "surfaceStyle": "flat-paper",
+        "accentStrategy": "single-muted-accent",
+        "density": "relaxed",
+        "shapeLanguage": "soft-flat",
+        "motionCharacter": "gentle",
+        "glowUsage": "none",
+        "mood": [
+          "calm",
+          "minimal",
+          "clean"
+        ]
+      },
+      "desktop-fluent": {
+        "surfaceStyle": "stacked-panels",
+        "accentStrategy": "single-primary",
+        "density": "comfortable",
+        "shapeLanguage": "layered-rounded",
+        "motionCharacter": "measured",
+        "glowUsage": "none",
+        "mood": [
+          "professional",
+          "layered",
+          "confident"
+        ]
+      },
+      "cyber-futuristic": {
+        "surfaceStyle": "dark-glass",
+        "accentStrategy": "cyan-primary-yellow-alert",
+        "density": "spacious",
+        "shapeLanguage": "sharp-tech",
+        "motionCharacter": "quick-precise",
+        "glowUsage": "interactive-only",
+        "mood": [
+          "tactical",
+          "futuristic",
+          "electric"
+        ]
+      }
+    },
+    "accessibility": {
+      "focusRingWidth": "2px",
+      "reducedMotionPreset": "minimal",
+      "keyboardVisibleFocusRequired": true,
+      "focusRingOffset": "2px",
+      "focusStyle": "visible-ring",
+      "contrastTarget": "WCAG-AA"
     }
   }
 }

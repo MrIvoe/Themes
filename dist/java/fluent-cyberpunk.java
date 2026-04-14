@@ -1,0 +1,42 @@
+public final class FluentCyberpunkTheme {
+
+    public static final String BACKGROUND_PRIMARY = "#070A0F";
+    public static final String BACKGROUND_SECONDARY = "#0C1220";
+    public static final String BACKGROUND_TERTIARY = "#111A2D";
+    public static final String SURFACE_PANEL = "#0E1524";
+    public static final String SURFACE_CARD = "#131D31";
+    public static final String SURFACE_OVERLAY = "#1A2940";
+    public static final String TEXT_PRIMARY = "#EAF7FF";
+    public static final String TEXT_SECONDARY = "#B4D7EA";
+    public static final String TEXT_MUTED = "#7AA0B8";
+    public static final String TEXT_INVERSE = "#05070B";
+    public static final String ACCENT_PRIMARY = "#00E5FF";
+    public static final String ACCENT_SECONDARY = "#FCEE09";
+    public static final String ACCENT_SUCCESS = "#59F79C";
+    public static final String ACCENT_WARNING = "#FFD60A";
+    public static final String ACCENT_DANGER = "#FF2A6D";
+    public static final String ACCENT_INFO = "#2BF0FF";
+    public static final String BORDER_DEFAULT = "#1F3752";
+    public static final String BORDER_STRONG = "#2D5278";
+    public static final String BORDER_SUBTLE = "#17273A";
+    public static final String STATE_FOCUS = "#00E5FF";
+    public static final String STATE_HOVER = "#112845";
+    public static final String STATE_ACTIVE = "#173153";
+    public static final String STATE_DISABLED = "#4A6076";
+    public static final String STATE_SELECTED = "#123A62";
+    public static final String STATE_ERROR = "#FF2A6D";
+    public static final String SYNTAX_KEYWORD = "#F95CFF";
+    public static final String SYNTAX_STRING = "#9BFF58";
+    public static final String SYNTAX_FUNCTION = "#2BF0FF";
+    public static final String SYNTAX_VARIABLE = "#F2FCFF";
+    public static final String SYNTAX_TYPE = "#FFD84D";
+    public static final String SYNTAX_COMMENT = "#6787A8";
+    public static final String ICON_DEFAULT = "#C7D0D9";
+    public static final String ICON_INTERACTIVE = "#00E5FF";
+    public static final String ICON_MUTED = "#8A97A6";
+    public static final String ICON_INVERSE = "#F5F7FA";
+    public static final String ICON_SUCCESS = "#2ECC71";
+    public static final String ICON_WARNING = "#FFD60A";
+    public static final String ICON_DANGER = "#FF2A6D";
+    public static final String ICON_INFO = "#00C2FF";
+}
