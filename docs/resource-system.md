@@ -6,36 +6,6 @@ The **Resource System** is how the Themes repo manages runtime-selectable UI res
 
 Resources are **declared in `themes/midnight/resources.json`** and resolved at theme load time by the consuming app (Spaces or plugins).
 
-## Naming Law
-
-- Component contracts in `components.json` are singular (`switch.default`, `tab.standard`).
-- Resource buckets in `resources.json` are plural (`ui.switches` is not used; use `ui.controls.switch`, `ui.tabs.styles.*`).
-- Every `componentRef` must point to a singular component contract path.
-
-Examples:
-
-- valid: `tab.standard`
-- invalid: `tabs.standard`
-- valid: `switch.default`
-- invalid: `toggle.default`
-
-## Required Family Metadata
-
-`resources.json` must include:
-
-- `ui.familySupport.<family>.status`
-- `ui.familySupport.<family>.supportedComponents`
-- `ui.familySupport.<family>.fallbackFamily`
-- `ui.familyDna.<family>.mood`
-- `ui.familyDna.<family>.shapeLanguage`
-- `ui.familyDna.<family>.density`
-- `ui.familyDna.<family>.motionCharacter`
-- `ui.familyDna.<family>.glowUsage`
-- `ui.familyDna.<family>.surfaceStyle`
-- `ui.familyDna.<family>.accentStrategy`
-
-These fields are validator-enforced and used to drive support-level-aware runtime UI selection.
-
 ## Architecture
 
 ### Three Layers

@@ -1,0 +1,42 @@
+public final class NightCityFluentTheme {
+
+    public static final String BACKGROUND_PRIMARY = "#0A0D12";
+    public static final String BACKGROUND_SECONDARY = "#111722";
+    public static final String BACKGROUND_TERTIARY = "#162030";
+    public static final String SURFACE_PANEL = "#0F141C";
+    public static final String SURFACE_CARD = "#131A24";
+    public static final String SURFACE_OVERLAY = "#182232";
+    public static final String TEXT_PRIMARY = "#F3F7FB";
+    public static final String TEXT_SECONDARY = "#B9C7D6";
+    public static final String TEXT_MUTED = "#71859A";
+    public static final String TEXT_INVERSE = "#0A0D12";
+    public static final String ACCENT_PRIMARY = "#FCEE0A";
+    public static final String ACCENT_SECONDARY = "#00E5FF";
+    public static final String ACCENT_SUCCESS = "#37E68C";
+    public static final String ACCENT_WARNING = "#FFB400";
+    public static final String ACCENT_DANGER = "#FF5A5F";
+    public static final String ACCENT_INFO = "#00E5FF";
+    public static final String BORDER_DEFAULT = "#2A3446";
+    public static final String BORDER_STRONG = "#3B4A63";
+    public static final String BORDER_SUBTLE = "#1D2734";
+    public static final String STATE_FOCUS = "#00E5FF";
+    public static final String STATE_HOVER = "#16212E";
+    public static final String STATE_ACTIVE = "#1C2C3D";
+    public static final String STATE_DISABLED = "#52606F";
+    public static final String STATE_SELECTED = "#24354A";
+    public static final String STATE_ERROR = "#FF5A5F";
+    public static final String SYNTAX_KEYWORD = "#7DE0FF";
+    public static final String SYNTAX_STRING = "#9AF57E";
+    public static final String SYNTAX_FUNCTION = "#00E5FF";
+    public static final String SYNTAX_VARIABLE = "#F3F7FB";
+    public static final String SYNTAX_TYPE = "#FCEE0A";
+    public static final String SYNTAX_COMMENT = "#5E7188";
+    public static final String ICON_DEFAULT = "#B9C7D6";
+    public static final String ICON_INTERACTIVE = "#00E5FF";
+    public static final String ICON_MUTED = "#71859A";
+    public static final String ICON_INVERSE = "#0A0D12";
+    public static final String ICON_SUCCESS = "#37E68C";
+    public static final String ICON_WARNING = "#FCEE0A";
+    public static final String ICON_DANGER = "#FF5A5F";
+    public static final String ICON_INFO = "#00E5FF";
+}

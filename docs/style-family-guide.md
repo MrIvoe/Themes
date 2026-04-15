@@ -6,30 +6,6 @@ Style families are **semantic component design directions** that allow a single 
 
 Style families are **not framework implementations**. They are **contracts** that describe what a component looks like in each direction.
 
-## Support Level Contract
-
-Every family must declare:
-
-- `status`: `stable | partial | experimental | planned`
-- `supportedComponents`: explicit component namespace list
-- `fallbackFamily`: one of the available family ids
-
-This contract is validated so UI selectors cannot advertise unsupported families as fully complete.
-
-## Family DNA Contract
-
-Every family must declare a DNA block:
-
-- `mood`
-- `shapeLanguage`
-- `density`
-- `motionCharacter`
-- `glowUsage`
-- `surfaceStyle`
-- `accentStrategy`
-
-DNA makes style intent portable across themes and prevents random palette-only variants.
-
 ## Family Profiles
 
 ### 1. Desktop Fluent

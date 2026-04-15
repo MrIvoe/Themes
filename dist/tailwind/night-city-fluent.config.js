@@ -1,0 +1,47 @@
+module.exports = {
+  theme: {
+    extend: {
+      colors: {
+        'background-primary': '#0A0D12',
+        'background-secondary': '#111722',
+        'background-tertiary': '#162030',
+        'surface-panel': '#0F141C',
+        'surface-card': '#131A24',
+        'surface-overlay': '#182232',
+        'text-primary': '#F3F7FB',
+        'text-secondary': '#B9C7D6',
+        'text-muted': '#71859A',
+        'text-inverse': '#0A0D12',
+        'accent-primary': '#FCEE0A',
+        'accent-secondary': '#00E5FF',
+        'accent-success': '#37E68C',
+        'accent-warning': '#FFB400',
+        'accent-danger': '#FF5A5F',
+        'accent-info': '#00E5FF',
+        'border-default': '#2A3446',
+        'border-strong': '#3B4A63',
+        'border-subtle': '#1D2734',
+        'state-focus': '#00E5FF',
+        'state-hover': '#16212E',
+        'state-active': '#1C2C3D',
+        'state-disabled': '#52606F',
+        'state-selected': '#24354A',
+        'state-error': '#FF5A5F',
+        'syntax-keyword': '#7DE0FF',
+        'syntax-string': '#9AF57E',
+        'syntax-function': '#00E5FF',
+        'syntax-variable': '#F3F7FB',
+        'syntax-type': '#FCEE0A',
+        'syntax-comment': '#5E7188',
+        'icon-default': '#B9C7D6',
+        'icon-interactive': '#00E5FF',
+        'icon-muted': '#71859A',
+        'icon-inverse': '#0A0D12',
+        'icon-success': '#37E68C',
+        'icon-warning': '#FCEE0A',
+        'icon-danger': '#FF5A5F',
+        'icon-info': '#00E5FF',
+      }
+    }
+  }
+};

@@ -192,13 +192,3 @@ This policy ensures we:
 ✅ Build something that's genuinely Spaces' own  
 
 The external systems are teachers and reference materials. Our components, tokens, and families are our own.
-
-## Game-Inspired Theme Rule
-
-Game-inspired themes are allowed only as **inspired experience themes**, not franchise replicas.
-
-- ✅ Allowed: mood, pacing, palette strategy, typography posture, interaction tone
-- ✅ Allowed: semantic theme DNA and family profile adaptation
-- ❌ Not allowed: copied logos, trademarked assets, exact HUD/layout replicas, exported game UI files
-
-This rule applies to all future themes (for example, fantasy, creature-collecting, tactical shooter, or urban action inspired directions).

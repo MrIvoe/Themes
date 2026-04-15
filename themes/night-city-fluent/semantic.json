@@ -1,0 +1,389 @@
+{
+  "button": {
+    "primary": {
+      "bg": "accent.primary",
+      "text": "text.inverse",
+      "border": "accent.primary",
+      "hoverBg": "accent.warning",
+      "activeBg": "state.selected",
+      "disabledBg": "state.disabled",
+      "disabledText": "text.muted",
+      "focusRing": "state.focus"
+    },
+    "secondary": {
+      "bg": "surface.card",
+      "text": "text.primary",
+      "border": "accent.secondary",
+      "hoverBg": "surface.overlay",
+      "activeBg": "state.active",
+      "disabledBg": "state.disabled",
+      "disabledText": "text.muted",
+      "focusRing": "state.focus"
+    },
+    "danger": {
+      "bg": "accent.danger",
+      "text": "text.inverse",
+      "border": "border.default",
+      "hoverBg": "state.active",
+      "activeBg": "state.active",
+      "focusRing": "state.focus"
+    },
+    "ghost": {
+      "bg": "background.primary",
+      "text": "text.primary",
+      "border": "border.subtle",
+      "hoverBg": "surface.card",
+      "activeBg": "state.active",
+      "focusRing": "state.focus"
+    }
+  },
+  "input": {
+    "bg": "surface.card",
+    "text": "text.primary",
+    "placeholder": "text.muted",
+    "border": "border.default",
+    "borderFocus": "state.focus",
+    "borderError": "state.error",
+    "disabledBg": "state.disabled",
+    "disabledText": "text.muted",
+    "labelText": "text.secondary",
+    "hintText": "text.muted",
+    "errorText": "accent.danger"
+  },
+  "checkbox": {
+    "bg": "surface.card",
+    "border": "border.default",
+    "checkedBg": "accent.primary",
+    "checkedBorder": "accent.primary",
+    "checkmark": "text.inverse",
+    "disabledBg": "state.disabled",
+    "focusRing": "state.focus"
+  },
+  "radio": {
+    "bg": "surface.card",
+    "border": "border.default",
+    "selectedBg": "accent.primary",
+    "selectedBorder": "accent.primary",
+    "indicator": "text.inverse",
+    "disabledBg": "state.disabled",
+    "focusRing": "state.focus"
+  },
+  "slider": {
+    "track": {
+      "bg": "border.subtle",
+      "fill": "accent.primary",
+      "disabled": "state.disabled",
+      "tick": "border.default"
+    },
+    "thumb": {
+      "bg": "text.inverse",
+      "border": "accent.primary",
+      "hover": "accent.info",
+      "disabled": "text.muted"
+    },
+    "focusRing": "state.focus",
+    "valueText": "text.secondary"
+  },
+  "select": {
+    "bg": "surface.card",
+    "text": "text.primary",
+    "placeholder": "text.muted",
+    "border": "border.default",
+    "borderFocus": "state.focus",
+    "arrow": "text.secondary",
+    "disabledBg": "state.disabled"
+  },
+  "dropdown": {
+    "bg": "surface.overlay",
+    "border": "border.default",
+    "shadow": "state.active",
+    "itemText": "text.primary",
+    "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.active",
+    "itemSelectedBg": "state.selected",
+    "itemSelectedText": "accent.primary",
+    "itemDisabledText": "text.muted",
+    "focusRing": "state.focus",
+    "divider": "border.subtle",
+    "groupLabel": "text.muted"
+  },
+  "tab": {
+    "activeBg": "surface.card",
+    "activeText": "text.primary",
+    "activeBorder": "accent.secondary",
+    "inactiveBg": "background.secondary",
+    "inactiveText": "text.secondary",
+    "hoverBg": "state.hover",
+    "disabledText": "text.muted",
+    "indicator": "accent.secondary"
+  },
+  "menu": {
+    "bg": "surface.overlay",
+    "border": "border.strong",
+    "itemText": "text.primary",
+    "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.active",
+    "itemDisabledText": "text.muted",
+    "itemIconColor": "icon.interactive",
+    "divider": "border.strong",
+    "shortcutText": "text.muted",
+    "groupLabel": "text.muted",
+    "checkmark": "accent.primary"
+  },
+  "tooltip": {
+    "bg": "surface.overlay",
+    "text": "text.primary",
+    "border": "border.subtle"
+  },
+  "card": {
+    "bg": "surface.card",
+    "border": "border.default",
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.primary"
+    },
+    "footer": {
+      "bg": "surface.panel",
+      "text": "text.secondary"
+    },
+    "body": {
+      "bg": "surface.card",
+      "text": "text.primary"
+    }
+  },
+  "panel": {
+    "bg": "surface.panel",
+    "border": "border.subtle",
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.primary"
+    }
+  },
+  "modal": {
+    "bg": "surface.card",
+    "border": "border.default",
+    "backdrop": "background.primary",
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.primary",
+      "border": "border.subtle"
+    },
+    "footer": {
+      "bg": "surface.panel",
+      "border": "border.subtle"
+    }
+  },
+  "alert": {
+    "info": {
+      "bg": "surface.card",
+      "text": "text.primary",
+      "border": "accent.info",
+      "icon": "accent.info"
+    },
+    "success": {
+      "bg": "surface.card",
+      "text": "text.primary",
+      "border": "accent.success",
+      "icon": "accent.success"
+    },
+    "warning": {
+      "bg": "surface.card",
+      "text": "text.primary",
+      "border": "accent.warning",
+      "icon": "accent.warning"
+    },
+    "danger": {
+      "bg": "surface.card",
+      "text": "text.primary",
+      "border": "accent.danger",
+      "icon": "accent.danger"
+    }
+  },
+  "badge": {
+    "default": {
+      "bg": "surface.overlay",
+      "text": "text.secondary"
+    },
+    "info": {
+      "bg": "accent.info",
+      "text": "text.inverse"
+    },
+    "success": {
+      "bg": "accent.success",
+      "text": "text.inverse"
+    },
+    "warning": {
+      "bg": "accent.warning",
+      "text": "text.inverse"
+    },
+    "danger": {
+      "bg": "accent.danger",
+      "text": "text.inverse"
+    }
+  },
+  "table": {
+    "bg": "background.primary",
+    "border": "border.default",
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.secondary",
+      "border": "border.default"
+    },
+    "row": {
+      "bg": "background.primary",
+      "altBg": "background.secondary",
+      "hoverBg": "state.hover",
+      "selectedBg": "state.selected",
+      "border": "border.subtle"
+    },
+    "cell": {
+      "text": "text.primary"
+    }
+  },
+  "tree": {
+    "bg": "background.primary",
+    "itemText": "text.primary",
+    "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.active",
+    "itemSelectedBg": "state.selected",
+    "itemSelectedText": "accent.primary",
+    "connectorColor": "border.subtle",
+    "expandIcon": "icon.muted"
+  },
+  "scrollbar": {
+    "track": "background.secondary",
+    "thumb": "border.strong",
+    "thumbHover": "accent.primary"
+  },
+  "editor": {
+    "bg": "background.primary",
+    "fg": "text.primary",
+    "lineNumber": "text.muted",
+    "cursor": "accent.primary",
+    "selection": "state.active",
+    "activeLine": "background.secondary",
+    "gutterBg": "background.primary",
+    "gutterBorder": "border.subtle"
+  },
+  "titlebar": {
+    "bg": "background.secondary",
+    "text": "text.primary",
+    "border": "border.subtle",
+    "buttonHoverBg": "state.hover",
+    "closeHoverBg": "accent.danger"
+  },
+  "sidebar": {
+    "bg": "background.secondary",
+    "border": "border.default",
+    "itemText": "text.secondary",
+    "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.active",
+    "itemSelectedBg": "accent.primary",
+    "itemSelectedText": "text.inverse",
+    "sectionLabel": "text.muted"
+  },
+  "settings": {
+    "bg": "background.primary",
+    "pane": {
+      "bg": "surface.panel",
+      "border": "border.default"
+    },
+    "header": {
+      "bg": "background.secondary",
+      "text": "text.primary",
+      "subtext": "text.secondary"
+    },
+    "sectionLabel": "text.muted",
+    "rowHoverBg": "state.hover",
+    "rowBorder": "border.default"
+  },
+  "tray": {
+    "bg": "surface.overlay",
+    "border": "border.strong",
+    "itemText": "text.primary",
+    "itemHoverBg": "state.hover",
+    "itemActiveBg": "state.selected",
+    "itemDisabledText": "text.muted",
+    "itemIconColor": "icon.interactive",
+    "divider": "border.strong",
+    "shadow": "state.active",
+    "focusRing": "state.focus"
+  },
+  "fence": {
+    "shell": {
+      "bg": "surface.card",
+      "border": "border.strong",
+      "shadowRest": "border.subtle",
+      "shadowFocus": "accent.secondary",
+      "collapsedBg": "background.secondary"
+    },
+    "titlebar": {
+      "bg": "surface.panel",
+      "text": "text.primary",
+      "border": "border.strong"
+    },
+    "itemArea": {
+      "bg": "surface.panel",
+      "text": "text.primary",
+      "hoverBg": "state.hover",
+      "selectedBg": "state.selected",
+      "dragPulse": "accent.secondary"
+    }
+  },
+  "icon": {
+    "default": {
+      "color": "icon.default"
+    },
+    "interactive": {
+      "color": "icon.interactive",
+      "hoverColor": "accent.primary",
+      "disabledColor": "state.disabled"
+    },
+    "status": {
+      "info": "icon.info",
+      "success": "icon.success",
+      "warning": "icon.warning",
+      "danger": "icon.danger"
+    }
+  },
+  "plugin": {
+    "header": {
+      "bg": "surface.panel",
+      "text": "text.primary"
+    },
+    "card": {
+      "bg": "surface.card",
+      "border": "border.strong",
+      "hoverBg": "state.active"
+    },
+    "summaryPanel": {
+      "bg": "surface.panel",
+      "border": "border.subtle",
+      "sectionBg": "surface.card",
+      "sectionText": "text.primary",
+      "sectionIcon": "icon.interactive"
+    },
+    "status": {
+      "info": "state.focus",
+      "warning": "accent.warning",
+      "error": "accent.danger",
+      "success": "accent.success"
+    }
+  },
+  "switch": {
+    "track": {
+      "off": "border.default",
+      "on": "accent.primary",
+      "disabled": "state.disabled",
+      "hover": "accent.info",
+      "active": "accent.primary"
+    },
+    "thumb": {
+      "bg": "text.inverse",
+      "disabled": "text.muted",
+      "hover": "text.inverse"
+    },
+    "focusRing": "state.focus",
+    "label": "text.primary"
+  }
+}
